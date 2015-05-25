@@ -1,0 +1,126 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+		<h:body>
+
+			<h:form>
+
+
+				<p:panel id="panel" header="Update Employee">
+
+
+					<h:panelGrid columns="3" cellpadding="5">
+
+						<p:outputLabel for="console" value="Position:" />
+						<p:selectOneMenu id="console" value="" style="width:125px">
+							<f:selectItem itemLabel="HR" itemValue="HR" />
+							<f:selectItem itemLabel="S DEV " itemValue="S DEV" />
+							<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
+						</p:selectOneMenu>
+
+
+
+						<p:messages id="msgs" />
+
+
+
+						<p:outputLabel for="firstname" value="Firstname:" />
+						<p:inputText id="firstname" value="มานพ"
+							required="true" label="Firstname" placeholder="ชื่อจริง"
+							requiredMessage="กรุณากรอกชื่อ"
+							validatorMessage="กรุณาใส่ตัวอักษร 3-30 ตัวอักษร">
+							<f:validateLength minimum="3" maximum="30" />
+						</p:inputText>
+
+						<p:message for="firstname" display="icon" />
+
+						<p:outputLabel for="lastname" value="Lastname:" />
+						<p:inputText id="lastname" value="มาทางนี้"
+							label="Lastname" required="true" placeholder="นามสกุลจริง"
+							requiredMessage="กรุณากรอกนามสกุล"
+							validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+							<f:validateLength minimum="2" />
+							<p:ajax update="msgLastname" />
+						</p:inputText>
+						<p:message for="lastname" id="msgLastname" display="icon" />
+
+						<p:outputLabel value="BirthDay:" />
+						<p:calendar effect="slide" placeholder="วันเกิด"  />
+						<p:outputLabel value="" />
+
+						<p:outputLabel for="age" value="Age:" />
+						<p:inputText id="age" value="30" label="" required="true"
+							placeholder="อายุ" requiredMessage="กรุณากรอกนามสกุล"
+							validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+							<f:validateLength minimum="2" />
+							<p:ajax update="msgAge" />
+						</p:inputText>
+						<p:message for="age" id="msgAge" display="icon" />
+
+
+						<p:outputLabel for="gender" value="Gender:" />
+						<p:selectOneRadio id="gender" value="Male">
+							<f:selectItem itemLabel="Male" itemValue="Male" />
+							<f:selectItem itemLabel="Female" itemValue="Female" />
+						</p:selectOneRadio>
+						<p:outputLabel value="" />
+
+
+						<p:outputLabel for="address" value="Address:" />
+						<p:inputTextarea id="address" rows="5" cols="33" value="999/9999">
+							<f:validateLength minimum="1" />
+							<p:ajax update="msgAddress" />
+						</p:inputTextarea>
+						<p:message for="address" id="msgAddress" display="icon" />
+
+
+						<p:outputLabel for="TelPhone" value="TelPhone:" />
+						<p:inputText id="TelPhone" value="xxxxxxx" label="TelPhone"
+							required="true" placeholder="เบอร์โทรศัพท์มือถือ"
+							requiredMessage="กรุณากรอกเบอร์โทรศัพท์มือถือ"
+							validatorMessage="กรุณาใส่เบอร์โทรศัพท์มือถือ 10 หลัก">
+							<f:validateLength minimum="10" maximum="10" />
+							<p:ajax update="msgTelPhone" />
+						</p:inputText>
+						<p:message for="TelPhone" id="msgTelPhone" display="icon" />
+
+
+						<p:outputLabel for="TelHome" value="TelHome:" />
+						<p:inputText id="TelHome" value="xxxxxxx" label="TelHome" required="true"
+							placeholder="เบอร์โทรศัพท์"
+							requiredMessage="กรุณากรอกเบอร์โทรศัพท์"
+							validatorMessage="กรุณาใส่เบอร์โทรศัพท์มือถือ 8 หลัก">
+							<f:validateLength minimum="8" />
+							<p:ajax update="msgTelHome" />
+						</p:inputText>
+						<p:message for="TelHome" id="msgTelHome" display="icon" />
+
+
+
+					</h:panelGrid>
+
+
+					<p:commandButton value="Update" update="panel" />
+
+
+					<p:commandButton value="Cancel" update="panel" />
+
+
+				</p:panel>
+
+			</h:form>
+
+		</h:body>
+
+
+
+	</ui:define>
+</ui:composition>
