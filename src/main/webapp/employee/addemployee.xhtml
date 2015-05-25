@@ -11,7 +11,6 @@
 
 		<h:head>
 
-
 		</h:head>
 		<h:body>
 
@@ -19,7 +18,9 @@
 
 
 				<p:panel id="panel" header="Employee">
-
+					<div align="center">
+						<h3>Add Employee</h3>
+					</div>
 					<h:panelGrid columns="3" cellpadding="5">
 						<p:messages id="msgs" />
 
@@ -63,7 +64,7 @@
 							<f:selectItem itemLabel="Female" itemValue="Female" />
 						</p:selectOneRadio>
 						<p:outputLabel value="" />
-						
+
 
 						<p:outputLabel for="address" value="Address:" />
 						<p:inputTextarea id="address" rows="5" cols="33">
@@ -81,10 +82,10 @@
 							<f:validateLength minimum="10" maximum="10" />
 							<p:ajax update="msgTelPhone" />
 						</p:inputText>
-						<p:message for="TelPhone" id="msgTelPhone" display="icon"/>
+						<p:message for="TelPhone" id="msgTelPhone" display="icon" />
 
 
-						<p:outputLabel for="TelHome" value="TelHome:"/>
+						<p:outputLabel for="TelHome" value="TelHome:" />
 						<p:inputText id="TelHome" value="" label="TelHome" required="true"
 							placeholder="เบอร์โทรศัพท์"
 							requiredMessage="กรุณากรอกเบอร์โทรศัพท์"
@@ -94,10 +95,16 @@
 						</p:inputText>
 						<p:message for="TelHome" id="msgTelHome" display="icon" />
 
-						
+						<p:outputLabel value="UploadPicture:" />
+						<p:fileUpload mode="simple" skinSimple="true" label="Upload" />
+
 					</h:panelGrid>
 
 				</p:panel>
+				<div align="center">
+					<p:commandButton value="Add" update="panel" />
+					<p:commandButton value="Cancel" update="panel" />
+				</div>
 			</h:form>
 
 		</h:body>
