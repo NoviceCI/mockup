@@ -6,17 +6,51 @@
 	xmlns:b="http://bootsfaces.net/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+
+
+</h:head>
+
+<h:body>
+	<h:form>
+		<div class="ui-grid ui-grid-responsive" style="padding-top: 10%">
+			<div class="ui-grid-row">
+				<div class="ui-grid-col-4"></div>
+				<div class="ui-grid-col-4">
+
+
+
+					<p:panel header="Login"> 
+						
+						<p:messages autoUpdate="true"></p:messages>
+						<h:panelGrid columns="2" cellpadding="8">
+							<h:outputLabel value="Username :"></h:outputLabel>
+							<p:inputText required="true" label="username"></p:inputText>
 	
-	
-	<h:head>
-	
-	
-	</h:head>
-	
-	<h:body>
-	
-		
-	</h:body>
-	
-	
+							<h:outputLabel value="Password :"></h:outputLabel>
+							<p:password required="true" label="password"></p:password>
+							
+							<div></div>
+							<p:commandButton value="Signin" icon="fa fa-sign-in" validateClient="true"></p:commandButton>
+							
+						</h:panelGrid>
+					
+					</p:panel>
+
+
+
+				</div>
+				<div class="ui-grid-col-4"></div>
+			</div>
+		</div>
+	</h:form>
+</h:body>
+
+
+
+
+
+
 </html>

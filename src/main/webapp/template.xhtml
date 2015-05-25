@@ -9,8 +9,6 @@
 <h:head>
 	<title>Dashboard Template for BootsFaces</title>
 	<style type="text/css">
-	
-	
 .noScrolllayoutUnit .ui-layout-unit-content {
 	overflow: hidden;
 	padding: 0px;
@@ -24,63 +22,121 @@
 	.ui-layout-bd, .ui-layout-hd {
 	border: none;
 }
+
+.ui-layout-unit .ui-layout-unit-content {
+	padding: 0px;
+}
+
+.nav  {
+	height: 70px
+}
+
+a.menubaritem:only-child {
+	   color: white;
+	   font-size: 31px;
+}
+
+.ui-menu {
+	background: #49c0f0; /* Old browsers */
+	background: -moz-linear-gradient(top, #49c0f0 0%, #2cafe3 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #49c0f0),
+		color-stop(100%, #2cafe3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #49c0f0 0%, #2cafe3 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #49c0f0 0%, #2cafe3 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #49c0f0 0%, #2cafe3 100%);
+	/* IE10+ */
+	background: linear-gradient(to bottom, #49c0f0 0%, #2cafe3 100%);
+	/* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#49c0f0',
+		endColorstr='#2cafe3', GradientType=0); /* IE6-9 */
+	color : white;
+}
+
+.ui-widget-content a {
+  color: #4f4f4f;
+}
+.ui-panelmenu .ui-panelmenu-header {
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  zoom: 1;
+  border: 0px;
+  border-right: solid 1px transparent;
+  }
+  
+  .ui-corner-all {
+  -moz-border-radius: 0px;
+   -webkit-border-radius: 0px; 
+   border-radius:0px; 
+}
+
+.ui-corner-top {
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-top-left-radius: 0px;
+  -moz-border-radius-topright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
 </style>
 
 
 </h:head>
 <h:body>
-	<p:layout fullPage="true" expandTitle="ขยาย" closeTitle="ปิด"
-		collapseTitle="ย่อ">
+	<p:layout fullPage="true">
 
 		<p:layoutUnit id="north" position="north"
-			styleClass="noScrolllayoutUnit">
+			styleClass="noScrolllayoutUnit" gutter="0" collapsible="true"
+			size="70">
 			<h:form>
-				<p:growl id="messages" />
-
-				<p:menubar>
-
-					<p:menuitem value="User : Administrator"></p:menuitem>
+				<p:menubar styleClass="nav">
+					
+					<p:menuitem value="3G Software Co., Ltd." styleClass="menubaritem"></p:menuitem>
 
 					<f:facet name="options">
 						<p:commandButton type="button" value="Logout"
-							icon="ui-icon-extlink" />
+							icon="fa fa-sign-out" style="width: 140px;height: 48px;"/>
 					</f:facet>
 				</p:menubar>
 			</h:form>
 		</p:layoutUnit>
 
 		<p:layoutUnit id="west" position="west" size="300" effectSpeed="1000"
-			closable="true" effect="slide" collapsible="true" gutter="0">
+			closable="true" effect="slide" collapsible="true" gutter="0"
+			style="padding:0px;">
 			<h:form>
 				<p:growl autoUpdate="true" />
 
-				<p:panelMenu>
+				<p:panelMenu style="  margin-top: -1px;">
 					<p:submenu label="Accounting">
 						<p:submenu label="Quotation" icon="ui-icon-extlink">
 							<p:menuitem value="List" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 							<p:menuitem value="Create" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 							<p:menuitem value="Update" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 						</p:submenu>
-						
+
 						<p:submenu label="PurchaseOrder" icon="ui-icon-extlink">
 							<p:menuitem value="List" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 							<p:menuitem value="Create" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 							<p:menuitem value="Update" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 						</p:submenu>
-						
+
 						<p:submenu label="Invoice" icon="ui-icon-extlink">
 							<p:menuitem value="List" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 							<p:menuitem value="Create" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 							<p:menuitem value="Update" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
+								icon="ui-icon-disk" />
 						</p:submenu>
 
 					</p:submenu>
@@ -92,7 +148,7 @@
 						<p:menuitem value="UpdateUser" actionListener="#{menuView.update}"
 							icon="ui-icon-arrowrefresh-1-w" />
 					</p:submenu>
-					<p:submenu label="RoleMangement">
+					<p:submenu label="RoleMangement" icon="ui-icon-arrowrefresh-1-w">
 						<p:menuitem value="CreateRole" actionListener="#{menuView.save}"
 							icon="ui-icon-disk" />
 						<p:menuitem value="UpdateRole" actionListener="#{menuView.update}"
@@ -125,8 +181,9 @@
 		</p:layoutUnit>
 
 
-		<p:layoutUnit id="center" position="center">
-				<ui:insert name="content"></ui:insert>
+		<p:layoutUnit id="center" position="center" gutter="0"
+			collapsible="true">
+			<ui:insert name="content"></ui:insert>
 		</p:layoutUnit>
 	</p:layout>
 
