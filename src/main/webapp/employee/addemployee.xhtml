@@ -15,12 +15,10 @@
 			<h:form>
 
 
-				<p:panel id="panel" header="Employee">
-					<div align="center">
-						<h3>Add Employee</h3>
-					</div>
+				<p:panel id="panel" header="Add Employee">
+				
 
-					<h:panelGrid columns="3" cellpadding="5">
+					<h:panelGrid  columns="3" cellpadding="5" >
 
 						<p:outputLabel for="console" value="Position:" />
 						<p:selectOneMenu id="console" value="" style="width:125px">
@@ -29,7 +27,11 @@
 							<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
 						</p:selectOneMenu>
 
+
+
 						<p:messages id="msgs" />
+
+
 
 						<p:outputLabel for="firstname" value="Firstname:" />
 						<p:inputText id="firstname" value="#{userView.firstname}"
@@ -102,17 +104,15 @@
 						</p:inputText>
 						<p:message for="TelHome" id="msgTelHome" display="icon" />
 
-						<p:outputLabel value="UploadPicture:" />
-						<p:fileUpload mode="simple" skinSimple="true" label="Upload" />
+
 
 					</h:panelGrid>
-					<div style="margin-left: 10cm;">					
-						<p:commandButton value="Add" update="panel"/>
-					
-					
-						<p:commandButton value="Cancel" update="panel" style="margin-left: 1cm;"/>
-				
-					</div>
+
+					<p:commandButton value="Add" update="panel" />
+
+
+					<p:commandButton value="Cancel" update="panel" />
+
 				</p:panel>
 
 			</h:form>
