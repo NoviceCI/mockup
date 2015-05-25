@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Dashboard Template for BootsFaces</title>
+	<style type="text/css">
+	
+	
+.noScrolllayoutUnit .ui-layout-unit-content {
+	overflow: hidden;
+	padding: 0px;
+}
+
+.noScrolllayoutUnit {
+	padding: 0px;
+}
+
+.ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap,
+	.ui-layout-bd, .ui-layout-hd {
+	border: none;
+}
+</style>
+
+
+</h:head>
+<h:body>
+	<p:layout fullPage="true" expandTitle="ขยาย" closeTitle="ปิด"
+		collapseTitle="ย่อ">
+
+		<p:layoutUnit id="north" position="north"
+			styleClass="noScrolllayoutUnit">
+			<h:form>
+				<p:growl id="messages" />
+
+				<p:menubar>
+
+					<p:menuitem value="User : Administrator"></p:menuitem>
+
+					<f:facet name="options">
+						<p:commandButton type="button" value="Logout"
+							icon="ui-icon-extlink" />
+					</f:facet>
+				</p:menubar>
+			</h:form>
+		</p:layoutUnit>
+
+		<p:layoutUnit id="west" position="west" size="300" effectSpeed="1000"
+			closable="true" effect="slide" collapsible="true" gutter="0">
+			<h:form>
+				<p:growl autoUpdate="true" />
+
+				<p:panelMenu>
+					<p:submenu label="Accounting">
+						<p:submenu label="Quotation" icon="ui-icon-extlink">
+							<p:menuitem value="List" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+							<p:menuitem value="Create" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+							<p:menuitem value="Update" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+						</p:submenu>
+						
+						<p:submenu label="PurchaseOrder" icon="ui-icon-extlink">
+							<p:menuitem value="List" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+							<p:menuitem value="Create" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+							<p:menuitem value="Update" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+						</p:submenu>
+						
+						<p:submenu label="Invoice" icon="ui-icon-extlink">
+							<p:menuitem value="List" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+							<p:menuitem value="Create" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+							<p:menuitem value="Update" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+						</p:submenu>
+
+					</p:submenu>
+
+
+					<p:submenu label="UserMangement">
+						<p:menuitem value="CreateUser" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+						<p:menuitem value="UpdateUser" actionListener="#{menuView.update}"
+							icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+					<p:submenu label="RoleMangement">
+						<p:menuitem value="CreateRole" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+						<p:menuitem value="UpdateRole" actionListener="#{menuView.update}"
+							icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+					<p:submenu label="UserMangement">
+						<p:menuitem value="CreateUser" actionListener="#{menuView.save}"
+							icon="ui-icon-disk" />
+						<p:menuitem value="UpdateUser" actionListener="#{menuView.update}"
+							icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+					<p:submenu label="EmployeeMangement">
+						<p:menuitem value="CreateEmployee"
+							actionListener="#{menuView.save}" icon="ui-icon-disk" />
+						<p:menuitem value="UpdateEmployee"
+							actionListener="#{menuView.update}"
+							icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+
+					<p:submenu label="Non-Ajax Menuitem">
+						<p:menuitem value="Delete" actionListener="#{menuView.delete}"
+							ajax="false" icon="ui-icon-close" />
+					</p:submenu>
+					<p:separator />
+
+				</p:panelMenu>
+			</h:form>
+
+
+		</p:layoutUnit>
+
+
+		<p:layoutUnit id="center" position="center">
+				<ui:insert name="content"></ui:insert>
+		</p:layoutUnit>
+	</p:layout>
+
+</h:body>
+</html>
