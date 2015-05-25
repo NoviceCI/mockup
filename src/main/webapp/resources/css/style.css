@@ -55,7 +55,7 @@ a.menubaritem:only-child {
   margin: 0;
   zoom: 1;
   border: 0px;
-  border-right: solid 1px transparent;
+  
   }
 
 
@@ -67,3 +67,27 @@ a.menubaritem:only-child {
   -webkit-border-top-right-radius: 0px;
   border-top-right-radius: 0px;
 }
+
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border-right: solid 1px rgba(69, 66, 66, 0.22)
+  /* background: #274B5F url("/mockup/javax.faces.resource/images/ui-bg_inset-hard_65_85b2cb_1x100.png.xhtml?ln=primefaces-aristo") 50% 50% repeat-x; */
+  background: #85b2cb linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+  background: #9BD6F7 -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.4)));
+  background: #85b2cb -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.4));
+  font-weight: bold;
+  color: #1C4257;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.ui-panelmenu .ui-panelmenu-content {
+  padding: 0.2em 0;
+  border-top: 0;
+  margin-top: -2px;
+  border : 0 ;
+  position: relative;
+  top: 1px;
+  overflow: auto;
+  zoom: 1;
+}
+
