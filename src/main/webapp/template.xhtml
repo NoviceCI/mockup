@@ -83,30 +83,30 @@
 						<p:submenu label="PositionMangement">
 
 							<p:menuitem value="CreatePosition"
-								actionListener="#{menuView.save}" icon="ui-icon-disk" />
+								action="/position/add.xhtml" icon="ui-icon-disk" />
 							<p:menuitem value="UpdatePosition"
-								actionListener="#{menuView.save}" icon="ui-icon-disk" />
+								action="/position/list.xhtml" icon="ui-icon-disk" />
 						</p:submenu>
 
 						<p:submenu label="RoleMangement" icon="ui-icon-arrowrefresh-1-w">
-							<p:menuitem value="CreateRole" actionListener="#{menuView.save}"
+							<p:menuitem value="CreateRole" action="/role/add.xhtml"
 								icon="ui-icon-disk" />
 							<p:menuitem value="UpdateRole"
-								actionListener="#{menuView.update}"
+								action="/role/add.xhtml"
 								icon="ui-icon-arrowrefresh-1-w" />
 						</p:submenu>
 						<p:submenu label="UserMangement">
-							<p:menuitem value="CreateUser" actionListener="#{menuView.save}"
+							<p:menuitem value="CreateUser" action="/user/add.xhtml"
 								icon="ui-icon-disk" />
 							<p:menuitem value="UpdateUser"
-								actionListener="#{menuView.update}"
+								action="/user/add.xhtml"
 								icon="ui-icon-arrowrefresh-1-w" />
 						</p:submenu>
 						<p:submenu label="EmployeeMangement">
 							<p:menuitem value="CreateEmployee"
-								actionListener="#{menuView.save}" icon="ui-icon-disk" />
+								action="/employee/add.xhtml" icon="ui-icon-disk" />
 							<p:menuitem value="UpdateEmployee"
-								actionListener="#{menuView.update}"
+								action="/employee/update.xhtml"
 								icon="ui-icon-arrowrefresh-1-w" />
 						</p:submenu>
 					</p:submenu>

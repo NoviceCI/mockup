@@ -16,8 +16,8 @@
 
 				<p:breadCrumb>
 					<p:menuitem value="home" url="/template.xhtml" />
-					<p:menuitem value="RoleMangement" url="#" />
-					<p:menuitem value="CreateRole" url="/position/add.xhtml" />
+					<p:menuitem value="Position" url="#" />
+					<p:menuitem value="CreatePosition" url="/role/add.xhtml" />
 				
 				</p:breadCrumb>
 				<p:panel id="panel" header="Create Position">
@@ -28,9 +28,9 @@
 						
 
 					
-						<p:outputLabel for="Position" value="Position Name: " />
+						<p:outputLabel for="Position" value="Role: " />
 						<p:inputText id="Position" value="" label="Position"
-							required="true" placeholder="ตำแหน่ง"
+							required="true" placeholder="role"
 							requiredMessage="กรุณากรอกนามสกุล"
 							validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
 							<f:validateLength minimum="2" />

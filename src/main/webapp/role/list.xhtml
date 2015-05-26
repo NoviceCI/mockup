@@ -12,12 +12,12 @@
 			<h:form>
 				
 					<p:breadCrumb>
-						<p:menuitem value="Home" url="/template.xhtml" />
-						<p:menuitem value="User" url="#" />
-						<p:menuitem value="UserList" url="/user/list.xhtml" />
+						<p:menuitem value="home" url="/template.xhtml" />
+						<p:menuitem value="RoleMangement" url="#" />
+						<p:menuitem value="Roles" url="/role/list.xhtml" />
 
 					</p:breadCrumb>
-				<p:panel header="User Table">
+				<p:panel header="Position Table">
 
 				
 
@@ -26,25 +26,15 @@
 							<h:outputText value="" />
 						</p:column>
 
-						<p:column headerText="Username">
+						<p:column headerText="RoleName">
 							<h:outputText value="" />
 						</p:column>
 
-						<p:column headerText="Password">
+						<p:column headerText="Description">
 							<h:outputText value="" />
 						</p:column>
 
-						<p:column headerText="Role">
-							<h:outputText value="" />
-						</p:column>
 						
-						<p:column headerText="CreateDate">
-							<h:outputText value="" />
-						</p:column>
-						<p:column headerText="UpdateDate">
-							<h:outputText value="" />
-						</p:column>
-
 						<p:column style="text-align:center;width:15%">
 							<p:commandButton value="Edit" styleClass="ui-priority-primary" />
 						</p:column>
