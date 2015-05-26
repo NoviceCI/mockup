@@ -1,0 +1,86 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+
+		<h:body>
+
+			<h:form>
+
+				<p:breadCrumb>
+					<p:menuitem value="hom,e" url="#" />
+					<p:menuitem value="UserMangement" url="#" />
+					<p:menuitem value="CreateUser" url="#" />
+
+
+				</p:breadCrumb>
+				<p:panel id="panel" header="Add Employee">
+
+
+					<h:panelGrid columns="3" cellpadding="5">
+
+						<p:outputLabel for="console" value="Employee: " />
+						<p:selectOneMenu id="console" value="" style="width:125px">
+							<f:selectItem itemLabel="Mark" itemValue="HR" />
+							<f:selectItem itemLabel="Jhone " itemValue="S DEV" />
+							<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
+						</p:selectOneMenu>
+
+						<br></br>
+
+						<p:outputLabel for="role" value="Role: " />
+						<p:selectOneMenu id="role" value="" style="width:125px">
+							<f:selectItem itemLabel="Admim" itemValue="HR" />
+							<f:selectItem itemLabel="Modulator " itemValue="S DEV" />
+							<f:selectItem itemLabel="user" itemValue="Accounting" />
+						</p:selectOneMenu>
+
+						<br></br>
+
+						<p:outputLabel for="username" value="Username: " />
+						<p:inputText id="username" value="" required="true"
+							label="username" placeholder="ยูชเซอร์เนม"
+							requiredMessage="กรุณากรอกยูซเซอร์เนม"
+							validatorMessage="กรุณาใส่ตัวอักษร 3-30 ตัวอักษร">
+							<f:validateLength minimum="3" maximum="30" />
+
+						</p:inputText>
+
+						<p:message for="username" />
+
+						<p:outputLabel for="password" value="Password: " />
+						<p:inputText id="password" value="" label="password"
+							required="true" placeholder="รหัสผ่าน"
+							requiredMessage="กรุณากรอกพาสเวอร์ด"
+							validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+							<f:validateLength minimum="2" />
+
+						</p:inputText>
+						<p:message for="password" />
+
+
+
+
+					</h:panelGrid>
+
+					<p:commandButton value="Add" update="panel" />
+					<p:commandButton value="Cancel" update="panel" />
+
+				</p:panel>
+
+
+
+			</h:form>
+
+		</h:body>
+
+
+	</ui:define>
+</ui:composition>
