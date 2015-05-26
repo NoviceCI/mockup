@@ -1,0 +1,73 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+
+		<h:body>
+
+			<h:form>
+
+				<p:breadCrumb>
+					<p:menuitem value="home" url="#" />
+					<p:menuitem value="Position" url="#" />
+					<p:menuitem value="CreatePosition" url="#" />
+				
+				</p:breadCrumb>
+				<p:panel id="panel" header="Create Position">
+
+
+					<h:panelGrid columns="3" cellpadding="5">
+
+						
+
+					
+						<p:outputLabel for="Position" value="Position Name: " />
+						<p:inputText id="Position" value="" label="Position"
+							required="true" placeholder="ตำแหน่ง"
+							requiredMessage="กรุณากรอกนามสกุล"
+							validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+							<f:validateLength minimum="2" />
+
+						</p:inputText>
+						<p:message for="Position" id="msgLastname" />
+
+						
+
+
+						<p:outputLabel for="address" value="Description" />
+						<p:inputTextarea id="address" rows="5" cols="33" value=""
+							requiredMessage="กรุณาระบุที่อยู่ " required="true"
+							validatorMessage="กรุณาใส่ที่อยู่จริง">
+							<f:validateLength minimum="10" />
+
+						</p:inputTextarea>
+						<p:message for="address" id="msgAddress" />
+
+
+
+
+
+
+					</h:panelGrid>
+
+					<p:commandButton value="Add" update="panel" />
+					<p:commandButton value="Cancel" update="panel" />
+
+				</p:panel>
+
+
+
+			</h:form>
+
+		</h:body>
+
+
+	</ui:define>
+</ui:composition>
