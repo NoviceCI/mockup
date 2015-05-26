@@ -22,7 +22,7 @@
 			styleClass="noScrolllayoutUnit" gutter="0" collapsible="true"
 			size="70">
 			<h:form>
-				<p:menubar styleClass="nav">
+				<p:menubar styleClass="nav" id="navmenu">
 					
 					<p:menuitem value="3G Software Co., Ltd." styleClass="menubaritem"></p:menuitem>
 
@@ -42,7 +42,7 @@
 
 				<p:panelMenu style="  margin-top: -1px;">
 					<p:submenu label="Accounting">
-						<p:submenu label="Quotation" icon="ui-icon-extlink">
+						<p:submenu label="Quotation" icon="fa fa-copy">
 							<p:menuitem value="List" actionListener="#{menuView.save}"
 								icon="ui-icon-disk" />
 							<p:menuitem value="Create" actionListener="#{menuView.save}"
