@@ -12,7 +12,12 @@
 		<h:body>
 
 			<h:form>
+				<p:breadCrumb>
+					<p:menuitem value="" url="#" />
+					<p:menuitem value="EmployeeManament" url="#" />
+					<p:menuitem value="UpdateEmployee" url="#" />
 
+				</p:breadCrumb>
 
 				<p:panel id="panel" header="Update Employee">
 
@@ -78,7 +83,8 @@
 
 						<p:outputLabel for="address" value="Address:" />
 						<p:inputTextarea id="address" rows="5" cols="33" value="999/9999"
-							requiredMessage="กรุณาระบุที่อยู่ " required="true" validatorMessage="กรุณาใส่ที่อยู่จริง">
+							requiredMessage="กรุณาระบุที่อยู่ " required="true"
+							validatorMessage="กรุณาใส่ที่อยู่จริง">
 							<f:validateLength minimum="10" />
 
 						</p:inputTextarea>
