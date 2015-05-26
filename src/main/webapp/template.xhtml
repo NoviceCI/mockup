@@ -68,35 +68,49 @@
 							<p:menuitem value="Update" actionListener="#{menuView.save}"
 								icon="ui-icon-disk" />
 						</p:submenu>
-
+						
+						<p:submenu label="Report" icon="ui-icon-extlink">
+							<p:menuitem value="CreateReport" actionListener="#{menuView.save}"
+								icon="ui-icon-print" />
+							<p:menuitem value="SeleteReport" actionListener="#{menuView.save}"
+								icon="ui-icon-document" />
+							
+						</p:submenu>
 					</p:submenu>
 
 
-					<p:submenu label="UserMangement">
-						<p:menuitem value="CreateUser" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
-						<p:menuitem value="UpdateUser" actionListener="#{menuView.update}"
-							icon="ui-icon-arrowrefresh-1-w" />
+					<p:submenu label="Admin">
+						<p:submenu label="PositionMangement">
+
+							<p:menuitem value="CreatePosition"
+								actionListener="#{menuView.save}" icon="ui-icon-disk" />
+							<p:menuitem value="UpdatePosition"
+								actionListener="#{menuView.save}" icon="ui-icon-disk" />
+						</p:submenu>
+
+						<p:submenu label="RoleMangement" icon="ui-icon-arrowrefresh-1-w">
+							<p:menuitem value="CreateRole" actionListener="#{menuView.save}"
+								icon="ui-icon-disk" />
+							<p:menuitem value="UpdateRole"
+								actionListener="#{menuView.update}"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
+						<p:submenu label="UserMangement">
+							<p:menuitem value="CreateUser" actionListener="#{menuView.save}"
+								icon="ui-icon-disk" />
+							<p:menuitem value="UpdateUser"
+								actionListener="#{menuView.update}"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
+						<p:submenu label="EmployeeMangement">
+							<p:menuitem value="CreateEmployee"
+								actionListener="#{menuView.save}" icon="ui-icon-disk" />
+							<p:menuitem value="UpdateEmployee"
+								actionListener="#{menuView.update}"
+								icon="ui-icon-arrowrefresh-1-w" />
+						</p:submenu>
 					</p:submenu>
-					<p:submenu label="RoleMangement" icon="ui-icon-arrowrefresh-1-w">
-						<p:menuitem value="CreateRole" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
-						<p:menuitem value="UpdateRole" actionListener="#{menuView.update}"
-							icon="ui-icon-arrowrefresh-1-w" />
-					</p:submenu>
-					<p:submenu label="UserMangement">
-						<p:menuitem value="CreateUser" actionListener="#{menuView.save}"
-							icon="ui-icon-disk" />
-						<p:menuitem value="UpdateUser" actionListener="#{menuView.update}"
-							icon="ui-icon-arrowrefresh-1-w" />
-					</p:submenu>
-					<p:submenu label="EmployeeMangement">
-						<p:menuitem value="CreateEmployee"
-							actionListener="#{menuView.save}" icon="ui-icon-disk" />
-						<p:menuitem value="UpdateEmployee"
-							actionListener="#{menuView.update}"
-							icon="ui-icon-arrowrefresh-1-w" />
-					</p:submenu>
+
 
 					<p:submenu label="Non-Ajax Menuitem">
 						<p:menuitem value="Delete" actionListener="#{menuView.delete}"
