@@ -1,0 +1,160 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+
+		<h:body>
+			<h:form>
+				<p:breadCrumb>
+					<p:menuitem value="home" url="/template.xhtml" />
+					<p:menuitem value="FunctionMangement" url="#" />
+					<p:menuitem value="CreateFunction" url="/function/add.xhtml" />
+				</p:breadCrumb>
+			</h:form>
+			<p:panel id="panel" header="Create function">
+				<h:form id="fu">
+
+					<p:fieldset legend="Function info" id="func">
+
+						<h:panelGrid columns="3" cellpadding="5">
+
+
+
+
+							<p:outputLabel for="function" value="function Name: " />
+							<p:inputText id="function" value="" label="function"
+								required="true" placeholder="ฟังก์ชั่น"
+								requiredMessage="กรุณากรอกนามสกุล"
+								validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+								<f:validateLength minimum="2" />
+
+							</p:inputText>
+							<p:message for="function" id="msgLastname" />
+
+
+
+
+							<p:outputLabel for="address" value="Description" />
+							<p:inputTextarea id="address" rows="5" cols="33" value=""
+								requiredMessage="กรุณาระบุที่อยู่ " required="true"
+								validatorMessage="กรุณาใส่ที่อยู่จริง">
+								<f:validateLength minimum="10" />
+
+							</p:inputTextarea>
+							<p:message for="address" id="msgAddress" />
+
+
+
+
+
+
+
+
+
+
+						</h:panelGrid>
+
+					</p:fieldset>
+
+					<br />
+					<br />
+
+
+
+
+
+
+
+
+
+					<h:form>
+
+						<p:fieldset legend="addWorkRight" id="paa">
+
+
+							<h:panelGrid columns="7" captionStyle="5">
+
+								<p:outputLabel for="workRight" value="workRight Name: " />
+								<p:inputText id="workRight" value="#{workBean.model.name}"
+									label="function" required="true" placeholder="ฟังก์ชั่น"
+									requiredMessage="กรุณากรอกนามสกุล"
+									validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+									<f:validateLength minimum="2" />
+
+								</p:inputText>
+								<p:message for="workRight" id="workRightx" />
+
+								<p:outputLabel for="url" value="url: " />
+								<p:inputText id="url" value="#{workBean.model.url}" label="url"
+									required="true" placeholder="ฟังก์ชั่น"
+									requiredMessage="กรุณากรอกนามสกุล"
+									validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+									<f:validateLength minimum="2" />
+
+								</p:inputText>
+								<p:message for="url" id="urls" />
+
+
+								<p:commandButton value="AddWorkRight" update="paa"
+									process="@form" actionListener="#{workBean.addWork}" />
+
+
+							</h:panelGrid>
+
+							<br />
+
+							<p:dataTable value="#{workBean.list}" var="work"
+								rowIndexVar="index" id="wtable" tableStyle="table-layout: auto;">
+								<p:column headerText="#">
+									<h:outputText value="#{index+1}" />
+								</p:column>
+
+								<p:column headerText="name">
+									<h:outputText value="#{work.name}" />
+								</p:column>
+
+								<p:column headerText="url">
+									<h:outputText value="#{work.url}" />
+								</p:column>
+
+
+								<p:column style="text-align:center;width:15%">
+									<p:commandButton value="delete" 
+										actionListener="#{workBean.delete(work)}" process="@this"
+										update="wtable"></p:commandButton>
+								</p:column>
+
+
+							</p:dataTable>
+
+							<br />
+							<br />
+
+						</p:fieldset>
+
+
+					</h:form>
+
+					<br />
+					<br />
+
+					<p:commandButton value="Add"  update="func"  process="@form"/>
+					<p:commandButton value="Cancel" update="func" />
+
+
+				</h:form>
+			</p:panel>
+
+
+		</h:body>
+
+
+	</ui:define>
+</ui:composition>
