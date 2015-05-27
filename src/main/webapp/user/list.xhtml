@@ -21,28 +21,30 @@
 
 				
 
-					<p:dataTable id="emtable" value="" tableStyle="table-layout: auto;">
+					<p:dataTable id="emtable" value="#{userBean.list}" var="user" tableStyle="table-layout: auto;" rowIndexVar="i"
+						rows="20" paginator="true" paginatorPosition="top"
+					>
 						<p:column headerText="#">
-							<h:outputText value="" />
+							<h:outputText value="#{i+1}" />
 						</p:column>
 
 						<p:column headerText="Username">
-							<h:outputText value="" />
+							<h:outputText value="#{user.username}" />
 						</p:column>
 
 						<p:column headerText="Password">
-							<h:outputText value="" />
+							<h:outputText value="#{user.password}" />
 						</p:column>
 
 						<p:column headerText="Role">
-							<h:outputText value="" />
+							<h:outputText value="ทดสอบ" />
 						</p:column>
 						
 						<p:column headerText="CreateDate">
-							<h:outputText value="" />
+							<h:outputText value="#{user.create}" />
 						</p:column>
 						<p:column headerText="UpdateDate">
-							<h:outputText value="" />
+							<h:outputText value="#{user.update}" />
 						</p:column>
 
 						<p:column style="text-align:center;width:15%">
