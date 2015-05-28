@@ -1,0 +1,83 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+		<h:body>
+
+			<h:form>
+
+				<p:breadCrumb>
+					<p:menuitem value="home" url="/template.xhtml" />
+					<p:menuitem value="Menu" url="#" />
+					<p:menuitem value="CreateMenu" url="/menu/add.xhtml" />
+
+				</p:breadCrumb>
+
+				<h:panelGrid columns="3" cellpadding="5">
+					<p:outputLabel value="Master : " />
+					<p:selectOneMenu style="width:200px" value="EmployeeMangement">
+						<f:selectItem itemLabel="EmployeeMangement"
+							itemValue="EmployeeMangement" />
+						<f:selectItem itemLabel="HR" itemValue="HR" />
+					</p:selectOneMenu>
+					<p:selectManyCheckbox id="basic"
+			   			value="#{checkboxView.selectedConsoles}">
+						<f:selectItem itemLabel="" itemValue="basic"/>
+					</p:selectManyCheckbox>
+
+					<p:outputLabel value="Name : " />
+					<p:inputText style="width:195px" id="menu" label="Menu"
+						required="true" placeholder="ชื่อเมนู"
+						requiredMessage="กรุณาใส่ชื่อเมนู"
+						validatorMessage="กรุณาใส่อย่างน้อย 2 ตัวอักษร" disabled="true">
+						<f:validateLength minimum="2" />
+
+
+					</p:inputText>
+					<p:message for="menu" id="msgMenu" />
+
+					<p:outputLabel value="Function : " />
+					<p:selectOneMenu style="width:200px" value="EmployeeMangement">
+						<f:selectItem itemLabel="Admin" itemValue="Admin" />
+						<f:selectItem itemLabel="HR" itemValue="HR" />
+
+					</p:selectOneMenu>
+
+					<br></br>
+				</h:panelGrid>
+
+				<h:panelGrid columns="3" cellpadding="5">
+					<p:outputLabel value="TreeFunction : " />
+					<p:tree value="#{treeBean.root}" var="node"
+						orientation="horizontal">
+
+
+						<p:treeNode>
+
+							<h:outputText value="#{node}" />
+							<p:commandButton icon="fa fa-times"></p:commandButton>
+
+							
+							
+							
+						</p:treeNode>
+	
+
+							
+								
+						
+					
+					</p:tree>
+				</h:panelGrid>
+			</h:form>
+
+		</h:body>
+	</ui:define>
+</ui:composition>
