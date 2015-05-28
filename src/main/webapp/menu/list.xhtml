@@ -1,0 +1,71 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+		<h:form>
+
+			<p:breadCrumb>
+				<p:menuitem value="home" url="/template.xhtml" />
+				<p:menuitem value="MenuMaagment" url="#" />
+				<p:menuitem value="List" url="/menu/list.xhtml" />
+
+			</p:breadCrumb>
+			<p:panel header="Menu Table">
+
+
+
+				<p:dataTable id="emtable" value="" var="role" rowIndexVar="index"
+					tableStyle="table-layout: auto;">
+					<p:column headerText="#">
+						<h:outputText value="#{index+1}" />
+					</p:column>
+
+					<p:column headerText="MenuName" style="text-align:center;">
+					
+						<h:outputText value="Acccounting" />
+
+					</p:column>
+
+					<p:column headerText="Function" style="text-align:center;" >
+						<h:outputText value="Accounting"  />
+					</p:column>
+
+				
+						
+							<p:column style="text-align:center;">
+								<p:commandButton value="Tree Detail"
+									styleClass="ui-priority-primary" />
+							</p:column>
+					
+						
+							<p:column style="text-align:center;padding: 20px;">
+								<p:commandButton value="Edit" styleClass="ui-priority-primary" />
+							</p:column>
+						
+						
+							<p:column style="text-align:center;width:15%">
+								<p:commandButton value="Delete" styleClass="ui-priority-primary" />
+							</p:column>
+						
+					
+			
+				
+					
+				</p:dataTable>
+
+			</p:panel>
+
+
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
