@@ -18,47 +18,105 @@
 					<p:menuitem value="home" url="/template.xhtml" />
 					<p:menuitem value="Position" url="#" />
 					<p:menuitem value="CreatePosition" url="/role/add.xhtml" />
-				
+
 				</p:breadCrumb>
-				<p:panel id="panel" header="Create Position">
 
+				<p:panel id="panel" header="Create Role">
 
-					<h:panelGrid columns="3" cellpadding="5">
-
-						
-
-					
-						<p:outputLabel for="Position" value="Role: " />
-						<p:inputText id="Position" value="" label="Position"
-							required="true" placeholder="role"
-							requiredMessage="กรุณากรอกนามสกุล"
-							validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
-							<f:validateLength minimum="2" />
-
-						</p:inputText>
-						<p:message for="Position" id="msgLastname" />
-
-						
-
-
-						<p:outputLabel for="address" value="Description" />
-						<p:inputTextarea id="address" rows="5" cols="33" value=""
-							requiredMessage="กรุณาระบุที่อยู่ " required="true"
-							validatorMessage="กรุณาใส่ที่อยู่จริง">
-							<f:validateLength minimum="10" />
-
-						</p:inputTextarea>
-						<p:message for="address" id="msgAddress" />
+					<p:fieldset legend="Role Info">
+						<h:panelGrid columns="3" cellpadding="5">
 
 
 
 
+							<p:outputLabel for="Position" value="Role: " />
+							<p:inputText id="Position" value="" label="Position"
+								required="true" placeholder="role"
+								requiredMessage="กรุณากรอกนามสกุล"
+								validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+								<f:validateLength minimum="2" />
+
+							</p:inputText>
+							<p:message for="Position" id="msgLastname" />
 
 
-					</h:panelGrid>
 
+
+							<p:outputLabel for="address" value="Description" />
+							<p:inputTextarea id="address" rows="5" cols="33" value=""
+								requiredMessage="กรุณาระบุที่อยู่ " required="true"
+								validatorMessage="กรุณาใส่ที่อยู่จริง">
+								<f:validateLength minimum="10" />
+
+							</p:inputTextarea>
+							<p:message for="address" id="msgAddress" />
+
+
+
+
+
+
+						</h:panelGrid>
+					</p:fieldset>
+					<br />
+					<h:form>
+						<p:fieldset legend="Select function">
+
+							<h:panelGrid columns="7" cellpadding="5">
+
+								<p:outputLabel for="console" value="Function Name: " />
+								<p:selectOneMenu id="console" value="" style="width:125px">
+									<f:selectItem itemLabel="QT1" itemValue="HR" />
+									<f:selectItem itemLabel="QT2" itemValue="S DEV" />
+									<f:selectItem itemLabel="PO" itemValue="Accounting" />
+								</p:selectOneMenu>
+
+								<p:outputLabel for="basic" value="WorkRight: " />
+								<p:selectManyCheckbox id="basic"
+									value="#{checkboxView.selectedConsoles}">
+									<f:selectItem itemLabel="Add " itemValue="Xbox One" />
+									<f:selectItem itemLabel="Update " itemValue="PS4" />
+									<f:selectItem itemLabel="Delete " itemValue="Wii U" />
+								</p:selectManyCheckbox>
+								<p:commandButton icon="fa fa-plus"></p:commandButton>
+
+
+							</h:panelGrid>
+
+							<p:dataTable value="#{work.domains}" var="domain" rowIndexVar="index"   tableStyle="table-layout: auto;">
+								<p:column headerText="#">
+									<h:outputText value="#{index+1}" />
+								</p:column>
+
+								
+								<p:column headerText="Function Name">
+									<h:outputText value="#{domain.code}" />
+								</p:column>
+
+								<p:column headerText="WorkRight">
+									<h:outputText value="#{domain.name}" />
+								</p:column>
+								
+								
+								
+								
+								<p:column headerText="action" style="text-align:center">
+									<p:button value="delete"></p:button>
+								</p:column>
+
+							</p:dataTable>
+
+
+						</p:fieldset>
+					</h:form>
+
+					<br />
+					<br />
 					<p:commandButton value="Add" update="panel" />
 					<p:commandButton value="Cancel" update="panel" />
+
+
+
 
 				</p:panel>
 

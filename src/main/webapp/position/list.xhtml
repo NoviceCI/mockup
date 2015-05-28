@@ -21,17 +21,17 @@
 
 				
 
-					<p:dataTable id="emtable" value="" tableStyle="table-layout: auto;">
+					<p:dataTable id="emtable" value="#{position.domains}" var="position" rowIndexVar="index" tableStyle="table-layout: auto;">
 						<p:column headerText="#">
-							<h:outputText value="" />
+							<h:outputText value="#{index+1}" />
 						</p:column>
 
 						<p:column headerText="PositionName">
-							<h:outputText value="" />
+							<h:outputText value="#{position.name}" />
 						</p:column>
 
 						<p:column headerText="Description">
-							<h:outputText value="" />
+							<h:outputText value="#{position.desc}" />
 						</p:column>
 
 						

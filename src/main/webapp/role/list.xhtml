@@ -17,28 +17,34 @@
 						<p:menuitem value="Roles" url="/role/list.xhtml" />
 
 					</p:breadCrumb>
-				<p:panel header="Position Table">
+				<p:panel header="Role Table">
 
 				
 
-					<p:dataTable id="emtable" value="" tableStyle="table-layout: auto;">
+					<p:dataTable id="emtable" value="#{role.domains}" var="role"
+					 rowIndexVar="index"
+					 tableStyle="table-layout: auto;">
 						<p:column headerText="#">
-							<h:outputText value="" />
+							<h:outputText value="#{index+1}" />
 						</p:column>
 
 						<p:column headerText="RoleName">
-							<h:outputText value="" />
+							<h:outputText value="#{role.name}" />
 						</p:column>
 
 						<p:column headerText="Description">
-							<h:outputText value="" />
+							<h:outputText value="#{role.descript}" />
 						</p:column>
 
 						
 						<p:column style="text-align:center;width:15%">
-							<p:commandButton value="Edit" styleClass="ui-priority-primary" />
+							<p:commandButton value="View Detail" styleClass="ui-priority-primary" />
 						</p:column>
 
+						<p:column style="text-align:center;width:15%">
+							<p:commandButton value="Edit" styleClass="ui-priority-primary" />
+						</p:column>
+						
 						<p:column style="text-align:center;width:15%">
 							<p:commandButton value="Delete" styleClass="ui-priority-primary" />
 						</p:column>
