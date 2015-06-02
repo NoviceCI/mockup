@@ -1,0 +1,84 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+
+		<h:body>
+
+			<h:form id="frm">
+
+
+				<p:fieldset legend="Select Product">
+
+					<h:panelGrid cellpadding="5" columns="7">
+						<p:outputLabel for="console" value="Product Name: " />
+						<p:selectOneMenu id="console"  value="#{qt.selectProduct}"
+							style="width:125px">
+							<f:selectItems  value="#{qt.listProduct}" var="product"
+								itemValue="#{product.id}" itemLabel="#{product.name}"
+							></f:selectItems>
+							<f:converter converterId="cpc"></f:converter>
+						</p:selectOneMenu>
+
+						<p:outputLabel for="qty" value="Qty: "></p:outputLabel>
+						<p:inputText id="qty" value="#{qt.qty}"></p:inputText>
+
+						<p:commandButton icon="fa fa-plus"  actionListener="#{qt.addProduct}" update="frm"></p:commandButton>
+
+						<p:commandButton update="frm" value="Create QT and Save"
+						 actionListener="#{qt.genDoc}"	 ></p:commandButton>
+
+					</h:panelGrid>
+
+				</p:fieldset>
+
+				<p:fieldset legend="QT ">
+
+					<p:dataTable value="${qt.qt.listPrdocut}" var="qt"
+						rowIndexVar="index">
+
+						<p:column headerText="#">
+							<h:outputText value="#{index+1}"></h:outputText>
+						</p:column>
+
+						<p:column headerText="ProductName">
+							<h:outputText value="#{qt.name}"></h:outputText>
+						</p:column>
+
+						<p:column headerText="ProductPrice">
+							<h:outputText value="#{qt.price}"></h:outputText>
+						</p:column>
+
+
+						<p:column headerText="Qty">
+							<h:outputText value="#{qt.qty}"></h:outputText>
+						</p:column>
+
+						<p:column headerText="total">
+							<h:outputText value="#{qt.qty * qt.price}"></h:outputText>
+						</p:column>
+
+
+
+					</p:dataTable>
+
+
+				</p:fieldset>
+
+
+
+			</h:form>
+
+
+		</h:body>
+
+
+	</ui:define>
+</ui:composition>
