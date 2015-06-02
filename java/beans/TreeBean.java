@@ -14,7 +14,7 @@ import org.primefaces.model.TreeNode;
 public class TreeBean implements Serializable {
 
 	private TreeNode root;
-	private TreeNode root1;
+	
 
 	@PostConstruct
 	private void init() {
@@ -64,9 +64,7 @@ public class TreeBean implements Serializable {
 
 	}
 
-	public TreeNode getRoot1() {
-		return root1;
-	}
+	
 
 	public TreeNode getRoot() {
 		return root;
