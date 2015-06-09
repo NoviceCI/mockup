@@ -120,7 +120,10 @@
 
 				</p:tabView>
 				<br/>
-				<p:dataTable value="#{customerBean.customers}" var="customer"
+				
+				<h:form>
+				
+					<p:dataTable value="#{customerBean.customers}" var="customer"
 					rowIndexVar="index" tableStyle="table-layout: auto;"
 					paginator="true" paginatorPosition="bottom" rows="15">
 					<p:column headerText="#">
@@ -139,13 +142,6 @@
 						<h:outputText value="#{customer.company}" />
 					</p:column>
 
-					<p:column headerText="Branch">					
-						<h:outputText value="#{customer.branch}" />
-					</p:column>
-					
-					<p:column headerText="Address">					
-						<h:outputText value="#{customer.address}" />
-					</p:column>
 					
 					<p:column headerText="Tel - mobile">					
 						<h:outputText value="#{customer.t1}" />
@@ -163,8 +159,13 @@
 						<h:outputText value="#{customer.txid}" />
 					</p:column>
 					
+					<p:column headerText="Action">					
+						<p:commandButton value="ViewDetail"></p:commandButton>
+					</p:column>
 					
 				</p:dataTable>
+				
+				</h:form>
 
 
 			</p:panel>
