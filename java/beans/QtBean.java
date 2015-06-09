@@ -1,4 +1,4 @@
-	package beans;
+package beans;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -97,20 +97,15 @@ public class QtBean implements Serializable {
 		getQt().setListPrdocut(getListProduct());
 	}
 
-	public void genDoc() throws IOException
-	{
-		
-		
-		
-		
-		
-		
-		
-		String filename = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/")+"Simple-Quotation-Template.xls";
-		
-		String updateFileName= FacesContext.getCurrentInstance().getExternalContext().getRealPath("/");
-		
-		
+	public void genDoc() throws IOException {
+
+		String filename = FacesContext.getCurrentInstance()
+				.getExternalContext().getRealPath("/")
+				+ "Simple-Quotation-Template.xls";
+
+		String updateFileName = FacesContext.getCurrentInstance()
+				.getExternalContext().getRealPath("/");
+
 		FileInputStream fis = null;
 		try {
 			fis = new FileInputStream(filename);
@@ -118,72 +113,69 @@ public class QtBean implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(fis);
-		
-		HSSFSheet hssfSheet =  hssfWorkbook.getSheetAt(0);
-		
+
+		HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(0);
+
 		Cell cell = null;
-		
-		int i = 1 ;
-		
-		for ( Product_Domain domain : getQt().getListPrdocut()) {
-			
-			cell=hssfSheet.getRow(18+i).getCell(0);
-			cell.setCellValue(domain.getName() + " x " + domain.getQty()  );	
-			cell=hssfSheet.getRow(18+i).getCell(5);
+
+		int i = 1;
+
+		for (Product_Domain domain : getQt().getListPrdocut()) {
+
+			cell = hssfSheet.getRow(18 + i).getCell(0);
+			cell.setCellValue(domain.getName() + " x " + domain.getQty());
+			cell = hssfSheet.getRow(18 + i).getCell(5);
 			cell.setCellValue(domain.getPrice() * domain.getQty());
-			getQt().setTotal(getQt().getTotal()+ ( domain.getQty() * domain.getPrice() ) );
-			
+			getQt().setTotal(
+					getQt().getTotal() + (domain.getQty() * domain.getPrice()));
+
 			i++;
-			
-			
+
 		}
-		
-		cell = hssfSheet.getRow(28).getCell(5
-				);
+
+		cell = hssfSheet.getRow(28).getCell(5);
 		cell.setCellValue(getQt().getTotal());
 		System.out.print("total pricc" + getQt().getTotal());
-		
+
 		fis.close();
-		
-		 FileOutputStream outFile =new FileOutputStream(new File(updateFileName+"update.xls"));
-		 hssfWorkbook.write(outFile);
-         outFile.close();
-         
-         FacesContext fc = FacesContext.getCurrentInstance();
-         HttpServletResponse response = (HttpServletResponse) fc.getExternalContext().getResponse();
-         response.reset();
-         response.setContentType("application/vnd.ms-excel");
-         response.setHeader("Content-Disposition", "attachment; filename=\"" + "update.xls" + "\"");
-		
-  
-         
-         File file = new File(updateFileName+"update.xls");
-         
-         ServletOutputStream outputStream = null; 
-         
-         try {
+
+		FileOutputStream outFile = new FileOutputStream(new File(updateFileName
+				+ "update.xls"));
+		hssfWorkbook.write(outFile);
+		outFile.close();
+
+		FacesContext fc = FacesContext.getCurrentInstance();
+		HttpServletResponse response = (HttpServletResponse) fc
+				.getExternalContext().getResponse();
+		response.reset();
+		response.setContentType("application/vnd.ms-excel");
+		response.setHeader("Content-Disposition", "attachment; filename=\""
+				+ "update.xls" + "\"");
+
+		File file = new File(updateFileName + "update.xls");
+
+		ServletOutputStream outputStream = null;
+
+		try {
 			FileInputStream fileInputStream = new FileInputStream(file);
-			byte[] buff = new byte[1024] ;
+			byte[] buff = new byte[1024];
 			outputStream = response.getOutputStream();
-			int x = 0 ;
-			while((x= fileInputStream.read(buff)) != -1){
+			int x = 0;
+			while ((x = fileInputStream.read(buff)) != -1) {
 				outputStream.write(buff);
 				outputStream.flush();
 			}
-	        fc.responseComplete();
+			fc.responseComplete();
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			outputStream.close();
 		}
-         finally{
-        	 outputStream.close();
-         }
-         
-      ;
-        
-		
-		
+
+		;
+
 	}
 
 	public void deleteProduct(Product_Domain domain) {
