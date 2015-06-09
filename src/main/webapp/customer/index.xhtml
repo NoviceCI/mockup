@@ -1,0 +1,183 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+
+		<h:body>
+			<p:panel id="panel">
+				<p:messages autoUpdate="true" closable="true" id="msgs"
+					sticky="false"></p:messages>
+				<p:tabView onTabChange="clearMessage()">
+
+					<p:tab title="Search Customer">
+
+						<h:form id="search">
+
+							<h:panelGrid cellpadding="6" columns="6">
+
+								<h:outputLabel for="sname" value="First Name : "
+									style="font-weight:bold" />
+								<p:inputText id="sname" value="" required="true"
+									label="firstName" />
+
+								<h:outputLabel for="firstname" value="Company Name : "
+									style="font-weight:bold" />
+								<p:inputText id="scompany" value="" required="true"
+									label="companyname" />
+
+								<p:commandButton icon="fa fa-search" value="Search"
+									update="search" process="search"></p:commandButton>
+								<p:commandButton value="cancel" update="panel" process="@this"
+									icon="fa fa-times-circle">
+									<p:resetInput target="panel" />
+								</p:commandButton>
+
+							</h:panelGrid>
+
+						</h:form>
+
+
+					</p:tab>
+
+					<p:tab title="Create Customer">
+						<h:form id="add">
+
+
+
+							<h:panelGrid columns="6" cellpadding="8">
+
+								<h:outputLabel for="firstname" value="First Name : "
+									style="font-weight:bold" />
+								<p:inputText id="firstname" value="" required="true"
+									label="firstName" />
+
+								<h:outputLabel for="lastname" value="Last Name : "
+									style="font-weight:bold" />
+								<p:inputText id="lastname" value="" required="true"
+									label="lastname" />
+
+								<h:outputLabel for="company" value="Company : "
+									style="font-weight:bold" />
+								<p:inputText id="company" value="" required="true"
+									label="company" />
+
+
+								<h:outputLabel for="branch" value="Branch : "
+									style="font-weight:bold" />
+								<p:inputText id="branch" value="" required="true" label="branch" />
+
+
+								<h:outputLabel for="address" value="Address : "
+									style="font-weight:bold" />
+								<p:inputTextarea id="address" value="" required="true"
+									label="address" />
+
+								<h:outputLabel for="telmobile" value="Tel-Mobile : "
+									style="font-weight:bold" />
+								<p:inputText id="telmobile" value="" required="true"
+									label="telmobile" />
+
+
+								<h:outputLabel for="telcompany" value="Tel-Company : "
+									style="font-weight:bold" />
+								<p:inputText id="telcompany" value="" required="true"
+									label="telcompany" />
+
+								<h:outputLabel for="faxnumber" value="Fax-Number : "
+									style="font-weight:bold" />
+								<p:inputText id="faxnumber" value="" required="true"
+									label="faxnumber" />
+
+
+								<h:outputLabel for="taxid" value="TAX-ID"
+									style="font-weight:bold" />
+								<p:inputText id="taxid" value="" required="true" label="TAX-ID" />
+
+
+							</h:panelGrid>
+							<br />
+							<br />
+
+							<p:commandButton value="save" update="add" ajax="true"
+								validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
+							<p:commandButton value="cancel" update="panel" process="@this"
+								icon="fa fa-times-circle">
+								<p:resetInput target="panel" />
+							</p:commandButton>
+
+
+						</h:form>
+
+					</p:tab>
+
+
+				</p:tabView>
+				<br/>
+				<p:dataTable value="#{customerBean.customers}" var="customer"
+					rowIndexVar="index" tableStyle="table-layout: auto;"
+					paginator="true" paginatorPosition="bottom" rows="15">
+					<p:column headerText="#">
+						<h:outputText value="#{index+1}" />
+					</p:column>
+					
+					<p:column headerText="First Name">
+						<h:outputText value="#{customer.name}" />
+					</p:column>
+
+					<p:column headerText="Last Name">
+						<h:outputText value="#{customer.lastName}" />
+					</p:column>
+					
+					<p:column headerText="Company Name">
+						<h:outputText value="#{customer.company}" />
+					</p:column>
+
+					<p:column headerText="Branch">					
+						<h:outputText value="#{customer.branch}" />
+					</p:column>
+					
+					<p:column headerText="Address">					
+						<h:outputText value="#{customer.address}" />
+					</p:column>
+					
+					<p:column headerText="Tel - mobile">					
+						<h:outputText value="#{customer.t1}" />
+					</p:column>
+					
+					<p:column headerText="Tel - company">					
+						<h:outputText value="#{customer.t2}" />
+					</p:column>
+					
+					<p:column headerText="Fax">					
+						<h:outputText value="#{customer.fax}" />
+					</p:column>
+					
+					<p:column headerText="TAX ID">					
+						<h:outputText value="#{customer.txid}" />
+					</p:column>
+					
+					
+				</p:dataTable>
+
+
+			</p:panel>
+
+			<script type="text/javascript">
+				function clearMessage() {
+					$('#msgs').html('');
+				}
+			</script>
+
+
+		</h:body>
+
+
+	</ui:define>
+</ui:composition>
