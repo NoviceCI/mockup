@@ -15,65 +15,78 @@
 			<h:form id="frm">
 
 
-				<p:fieldset legend="Select Product">
+				<p:tabMenu activeIndex="#{param.i}">
+					<p:menuitem value="ค้นหาใบเสนอราคา" outcome="/qt/create.xhtm"
+						icon="ui-icon-search">
+						<f:param name="i" value="0" />
+					</p:menuitem>
+					<p:menuitem value="เพิ่มแก้ไขใบเสนอราคา" outcome="/qt/create.xhtm"
+						icon="ui-icon-search">
+						<f:param name="i" value="1" />
+					</p:menuitem>
+				</p:tabMenu>
 
-					<h:panelGrid cellpadding="5" columns="7">
-						<p:outputLabel for="console" value="Product Name: " />
-						<p:selectOneMenu id="console"  value="#{qt.selectProduct}"
-							style="width:125px">
-							<f:selectItems  value="#{qt.listProduct}" var="product"
-								itemValue="#{product.id}" itemLabel="#{product.name}"
-							></f:selectItems>
-							<f:converter converterId="cpc"></f:converter>
-						</p:selectOneMenu>
+				<h:panelGrid columns="6" cellpadding="4">
+				
+				
+					<p:outputLabel value="Company Name: " />
+					<p:selectOneMenu id="company" value="" style="width:400px">
+						<f:selectItem itemLabel="Company" />
+						<f:selectItem itemLabel="Company002" itemValue="2" />
+						<f:selectItem itemLabel="Company003" itemValue="3" />
+						<f:validateDoubleRange />
+					</p:selectOneMenu>
+					
+				
+					<p:outputLabel for="firstname" value="Contant name:" />
+					<p:inputText id="firstname" value="" required="true"
+						label="Firstname" placeholder="ชื่อจริง"
+						requiredMessage="กรุณากรอกชื่อ"
+						validatorMessage="กรุณาใส่ตัวอักษร 3-30 ตัวอักษร">
+						<f:validateLength minimum="3" maximum="30" />
+					</p:inputText>
 
-						<p:outputLabel for="qty" value="Qty: "></p:outputLabel>
-						<p:inputText id="qty" value="#{qt.qty}"></p:inputText>
+					<p:outputLabel for="firstname" value="lastname:" />
+					<p:inputText id="lastname" value="" label="Lastname"
+						required="true" placeholder="นามสกุลจริง"
+						requiredMessage="กรุณากรอกนามสกุล"
+						validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+						<f:validateLength minimum="2" />
 
-						<p:commandButton icon="fa fa-plus"  actionListener="#{qt.addProduct}" update="frm"></p:commandButton>
+					</p:inputText>
+						
+				
 
-						<p:commandButton update="frm" value="Create QT and Save"
-						 action="#{qt.genDoc}" ajax="false"	 ></p:commandButton>
+				
+					<p:outputLabel for="address" value="Address:" />
+					<p:inputTextarea id="address" rows="5" cols="33" value=""
+						requiredMessage="กรุณาระบุที่อยู่ " required="true"
+						validatorMessage="กรุณาใส่ที่อยู่จริง">
+						<f:validateLength minimum="10" />
 
-					</h:panelGrid>
+					</p:inputTextarea>
+		
+					<p:outputLabel for="mobile" value="Mobile:" />
+					<p:inputText id="mobile" value="" label="Mobile"
+						required="true" placeholder="เบอร์โทรศัพท์มือถือ"
+						requiredMessage="กรุณากรอกใส่เบอร์โทรศัพท์"
+						validatorMessage="กรุณากรอกใส่เบอร์โทรศัพท์ 10 หลัก">
+						<f:validateLength minimum="10" />
 
-				</p:fieldset>
+					</p:inputText>
+					
+					
+					<p:outputLabel for="phone" value="Phone:" />
+					<p:inputText id="phone" value="" label="Phone"
+						required="true" placeholder="เบอร์โทรศัพท์"
+						requiredMessage="กรุณากรอกนามสกุล"
+						validatorMessage="กรุณากรอกใส่เบอร์โทรศัพท์  8-10 หลัก">
+						<f:validateLength minimum="8" maximum="10" />
 
-				<p:fieldset legend="QT ">
-
-					<p:dataTable value="${qt.qt.listPrdocut}" var="qt"
-						rowIndexVar="index">
-
-						<p:column headerText="#">
-							<h:outputText value="#{index+1}"></h:outputText>
-						</p:column>
-
-						<p:column headerText="ProductName">
-							<h:outputText value="#{qt.name}"></h:outputText>
-						</p:column>
-
-						<p:column headerText="ProductPrice">
-							<h:outputText value="#{qt.price}"></h:outputText>
-						</p:column>
-
-
-						<p:column headerText="Qty">
-							<h:outputText value="#{qt.qty}"></h:outputText>
-						</p:column>
-
-						<p:column headerText="total">
-							<h:outputText value="#{qt.qty * qt.price}"></h:outputText>
-						</p:column>
-
-
-
-					</p:dataTable>
-
-
-				</p:fieldset>
-
-
-
+					</p:inputText>
+				
+				
+			</h:panelGrid>
 			</h:form>
 
 
