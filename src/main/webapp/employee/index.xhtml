@@ -1,0 +1,180 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+
+		<h:body>
+			<p:panel id="panel">
+				<p:messages autoUpdate="true" closable="true" id="msgs"
+					sticky="false"></p:messages>
+				<p:tabView onTabChange="clearMessage()">
+
+					<p:tab title="Search Employee">
+
+						<h:form id="search">
+
+							<h:panelGrid cellpadding="6" columns="5">
+
+								<h:outputLabel for="sname" value="First Name : " />
+								<p:inputText id="sname" value="" required="true"
+									label="firstName" />
+
+								<p:commandButton icon="fa fa-search" value="Search"
+									update="search" process="search"></p:commandButton>
+								<p:commandButton value="cancel" update="panel" process="@this"
+									icon="fa fa-times-circle">
+									<p:resetInput target="panel" />
+								</p:commandButton>
+
+							</h:panelGrid>
+
+						</h:form>
+
+
+					</p:tab>
+
+					<p:tab title="Create Employee">
+						<h:form id="add">
+
+
+
+							<h:panelGrid columns="6" cellpadding="10">
+
+								<p:outputLabel for="console" value="Position:" />
+								<p:selectOneMenu id="console" value="" style="width:125px">
+									<f:selectItem itemLabel="HR" itemValue="HR" />
+									<f:selectItem itemLabel="S DEV " itemValue="S DEV" />
+									<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
+								</p:selectOneMenu>
+
+
+								<p:outputLabel for="firstname" value="Firstname:" />
+								<p:inputText id="firstname" value="" required="true"
+									label="Firstname" placeholder="ชื่อจริง"
+									requiredMessage="กรุณากรอกชื่อ"
+									validatorMessage="กรุณาใส่ตัวอักษร 3-30 ตัวอักษร">
+									<f:validateLength minimum="3" maximum="30" />
+
+								</p:inputText>
+
+
+
+								<p:outputLabel for="lastname" value="Lastname:" />
+								<p:inputText id="lastname" value="" label="Lastname"
+									required="true" placeholder="นามสกุลจริง"
+									requiredMessage="กรุณากรอกนามสกุล"
+									validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+									<f:validateLength minimum="2" />
+
+								</p:inputText>
+
+
+								<p:outputLabel value="BirthDay:" for="date" />
+								<p:calendar id="date" effect="slide" placeholder="วันเกิด"
+									maxdate="#{now}" navigator="true" locale="de" required="true"
+									requiredMessage="กรุณาเลือกวันเกิด" />
+
+
+								<p:outputLabel for="age" value="Age:" />
+								<p:inputText id="age" value="" label="" required="true"
+									placeholder="อายุ" requiredMessage="กรุณากรอกนามสกุล"
+									validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+									<f:validateLength minimum="2" />
+
+								</p:inputText>
+
+
+
+								<p:outputLabel for="gender" value="Gender:" />
+								<p:selectOneRadio id="gender" value="" required="true"
+									requiredMessage="กรุณาเลือกเพศ">
+									<f:selectItem itemLabel="Male" itemValue="Male" />
+									<f:selectItem itemLabel="Female" itemValue="Female" />
+								</p:selectOneRadio>
+
+
+
+								<p:outputLabel for="address" value="Address:" />
+								<p:inputTextarea id="address" rows="5" cols="33" value=""
+									requiredMessage="กรุณาระบุที่อยู่ " required="true"
+									validatorMessage="กรุณาใส่ที่อยู่จริง">
+									<f:validateLength minimum="10" />
+
+								</p:inputTextarea>
+
+
+
+								<p:outputLabel for="TelPhone" value="TelPhone:" />
+								<p:inputText id="TelPhone" value="" label="TelPhone"
+									required="true" placeholder="เบอร์โทรศัพท์มือถือ"
+									requiredMessage="กรุณากรอกเบอร์โทรศัพท์มือถือ"
+									validatorMessage="กรุณาใส่เบอร์โทรศัพท์มือถือ 10 หลัก">
+									<f:validateLength minimum="10" maximum="10" />
+
+								</p:inputText>
+
+
+
+								<p:outputLabel for="TelHome" value="TelHome:" />
+								<p:inputText id="TelHome" value="" label="TelHome"
+									required="true" placeholder="เบอร์โทรศัพท์"
+									requiredMessage="กรุณากรอกเบอร์โทรศัพท์"
+									validatorMessage="กรุณาใส่เบอร์โทรศัพท์มือถือ 8 หลัก">
+									<f:validateLength minimum="8" />
+
+								</p:inputText>
+
+
+
+							</h:panelGrid>
+							<br />
+							<br />
+
+							<p:commandButton value="save" update="add" ajax="true"
+								validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
+							<p:commandButton value="cancel" update="panel" process="@this"
+								icon="fa fa-times-circle">
+								<p:resetInput target="panel" />
+							</p:commandButton>
+
+
+						</h:form>
+
+					</p:tab>
+
+
+				</p:tabView>
+				<br />
+
+				<h:form>
+
+					<p:dataTable rowIndexVar="index" tableStyle="table-layout: auto;"
+						paginator="true" paginatorPosition="bottom" rows="15">
+
+
+					</p:dataTable>
+
+				</h:form>
+
+
+			</p:panel>
+
+			<script type="text/javascript">
+				function clearMessage() {
+					$('#msgs').html('');
+				}
+			</script>
+
+
+		</h:body>
+
+
+	</ui:define>
+</ui:composition>

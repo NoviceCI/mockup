@@ -39,81 +39,18 @@
 
 				<p:panelMenu style="  margin-top: -1px;">
 					<p:submenu label="Accounting">
-						<p:submenu label="Quotation" icon="fa fa-copy">
-							<p:menuitem value="List" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-							<p:menuitem value="Create" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-							<p:menuitem value="Update" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-						</p:submenu>
-
-						<p:submenu label="PurchaseOrder" icon="ui-icon-extlink">
-							<p:menuitem value="List" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-							<p:menuitem value="Create" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-							<p:menuitem value="Update" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-						</p:submenu>
-
-						<p:submenu label="Invoice" icon="ui-icon-extlink">
-							<p:menuitem value="List" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-							<p:menuitem value="Create" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-				   			<p:menuitem value="Update" actionListener="#{menuView.save}"
-								icon="ui-icon-disk" />
-						</p:submenu>
-						
-						<p:submenu label="Report" icon="ui-icon-extlink">
-							<p:menuitem value="CreateReport" actionListener="#{menuView.save}"
-								icon="ui-icon-print" />
-							<p:menuitem value="SeleteReport" actionListener="#{menuView.save}"
-								icon="ui-icon-document" />
-							
-						</p:submenu>
+					
 					</p:submenu>
 
 
 					<p:submenu label="Admin">
-						<p:submenu label="PositionMangement">
-
-							<p:menuitem value="CreatePosition"
-								outcome="/position/add.xhtml" icon="ui-icon-disk" />
-							<p:menuitem value="UpdatePosition"
-								outcome="/position/list.xhtml" icon="ui-icon-disk" />
-						</p:submenu>
-
-
-						<p:submenu label="RoleMangement" >
-							<p:menuitem value="CreateRole" outcome="/role/add.xhtml"
-								icon="ui-icon-disk" />
-							<p:menuitem value="UpdateRole"
-								outcome="/role/list.xhtml"
-								icon="ui-icon-arrowrefresh-1-w" />
-						</p:submenu>
-						<p:submenu label="UserMangement">
-							<p:menuitem value="CreateUser" outcome="/user/add.xhtml"
-								icon="ui-icon-disk" />
-							<p:menuitem value="UpdateUser"
-								outcome="/user/list.xhtml"
-								icon="ui-icon-arrowrefresh-1-w" />
-						</p:submenu>
-						<p:submenu label="EmployeeMangement">
-							<p:menuitem value="CreateEmployee"
-								outcome="/employee/add.xhtml" icon="ui-icon-disk" />
-							<p:menuitem value="UpdateEmployee"
-								outcome="/employee/list.xhtml"
-								icon="ui-icon-arrowrefresh-1-w" />
-						</p:submenu>
+						<p:menuitem value="User" outcome="/user/index.xhtml"></p:menuitem>
+						<p:menuitem value="Employee" outcome="/employee/index.xhtml"></p:menuitem>
+						<p:menuitem value="Position " outcome="/position/index.xhtml"></p:menuitem>
+						<p:menuitem value="Customer" outcome="/customer/index.xhtml"></p:menuitem>
 					</p:submenu>
 
 
-					<p:submenu label="Non-Ajax Menuitem">
-						<p:menuitem value="Delete" actionListener="#{menuView.delete}"
-							ajax="false" icon="ui-icon-close" />
-					</p:submenu>
 					<p:separator />
 
 				</p:panelMenu>

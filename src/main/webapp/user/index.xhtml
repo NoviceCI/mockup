@@ -1,0 +1,83 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<p:panel id="panel">
+			<p:messages autoUpdate="true"></p:messages>
+			<p:tabView>
+				<p:tab title="Search User">
+					<h:form id="search">
+						<h:panelGrid columns="4" cellpadding="5">
+
+							<p:outputLabel for="susername" value="Username: " />
+							<p:inputText id="susername" value="" required="true">
+							</p:inputText>
+
+							<p:commandButton process="search" update="panel"
+								icon="fa fa-search" value="search"></p:commandButton>
+							<p:commandButton value="cancel" update="panel" process="@this"
+								icon="fa fa-times-circle">
+								<p:resetInput target="panel" />
+							</p:commandButton>
+
+						</h:panelGrid>
+					</h:form>
+				</p:tab>
+				<p:tab title="Create User">
+					<h:form id="add">
+						<h:panelGrid columns="4" cellpadding="5">
+
+							<p:outputLabel for="selectemployee" value="Employee: " />
+							<p:selectOneMenu id="selectemployee" value="" style="width:125px">
+								<f:selectItem itemLabel="Mark" itemValue="HR" />
+								<f:selectItem itemLabel="Jhone " itemValue="S DEV" />
+								<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
+							</p:selectOneMenu>
+
+							<p:outputLabel for="role" value="Role: " />
+							<p:selectOneMenu id="role" value="" style="width:125px">
+								<f:selectItem itemLabel="Admim" itemValue="HR" />
+								<f:selectItem itemLabel="Modulator " itemValue="S DEV" />
+								<f:selectItem itemLabel="user" itemValue="Accounting" />
+							</p:selectOneMenu>
+
+							<p:outputLabel for="username" value="Username: " />
+							<p:inputText id="username" value="" required="true"
+								label="username">
+
+							</p:inputText>
+
+							<p:outputLabel for="password" value="Password: " />
+							<p:inputText id="password" value="" label="password"
+								required="true">
+							</p:inputText>
+
+						</h:panelGrid>
+						<br />
+						<br />
+						<p:commandButton value="save" update="add" ajax="true"
+							validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
+						<p:commandButton value="cancel" update="panel" process="@this"
+							icon="fa fa-times-circle">
+							<p:resetInput target="panel" />
+						</p:commandButton>
+					</h:form>
+				</p:tab>
+			</p:tabView>
+			<br />
+			<h:form>
+				<p:dataTable tableStyle="table-layout: auto;" paginator="true"
+					paginatorPosition="bottom" rows="15">
+				
+				
+
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
