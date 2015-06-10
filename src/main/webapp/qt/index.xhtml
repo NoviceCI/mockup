@@ -42,9 +42,9 @@
 
 
 
-								<p:commandButton icon="fa fa-search" value="Search"
+								<p:commandButton icon="fa fa-search" value="ค้นหา"
 									update="search" process="search"></p:commandButton>
-								<p:commandButton value="cancel" update="panel" process="@this"
+								<p:commandButton value="ยกเลิก" update="panel" process="@this"
 									icon="fa fa-times-circle">
 									<p:resetInput target="panel" />
 								</p:commandButton>
@@ -169,27 +169,27 @@
 
 							</h:panelGroup>
 
-							<p:dataTable value="" var="" rowIndexVar="index"
+							<p:dataTable  rowIndexVar="index"
 								tableStyle="table-layout: auto;" paginator="true"
 								paginatorPosition="bottom" rows="10">
 								<p:column headerText="#">
-									<h:outputText value="#{index+1}" />
+									<h:outputText value="" />
 								</p:column>
 
-								<p:column headerText="Descriptions">
+								<p:column headerText="รายละเอียด">
 									<h:outputText />
 								</p:column>
 
-								<p:column headerText="Duration">
+								<p:column headerText="ระยะเวลา">
 									<h:outputText />
 								</p:column>
 
 
-								<p:column headerText="Unit Price">
+								<p:column headerText="ราคา">
 									<h:outputText />
 								</p:column>
 
-								<p:column headerText="Amount">
+								<p:column headerText="จำนวนเงิน">
 									<h:outputText />
 								</p:column>
 
