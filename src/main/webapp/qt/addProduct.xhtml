@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Add Product</title>
+	<style type="text/css">
+.ui-widget {
+	font-size: 90%;
+}
+</style>
+</h:head>
+
+<h:body>
+	<h:form >
+
+
+		<h:panelGrid columns="4" cellpadding="3">
+
+			<p:outputLabel for="name" value="ชื่อสินค้า  :" />
+			<p:inputText id="name" value="" required="true" label="ชื่อสินค้า"
+				>
+
+			</p:inputText>
+
+			<p:outputLabel for="name_emp" value="ชื่อพนักงาน  :" />
+			<p:inputText id="name_emp" value="" required="true"  label="ชื่อพนักงาน"
+				>
+
+			</p:inputText>
+	
+
+		
+			<p:outputLabel for="Position" value="ตำแหน่ง :" />
+			<p:inputText id="Position" value="" required="true"
+				label="ชื่อพนักงาน">
+
+			</p:inputText>
+
+			<p:outputLabel for="Period" value="ระยะเวลาของสัญญาจ้าง   : " />
+			<p:inputText id="Period" value="" label="ระยะเวลาของสัญญาจ้าง  "
+				required="true">
+
+
+			</p:inputText>
+
+			<p:outputLabel for="quantity" value="ระยะเวลา : " />
+			<p:inputText id="quantity" value="" label="ระยะเวลา "
+				required="true" >
+
+
+			</p:inputText>
+			
+			<p:outputLabel for="unit_type" value="หน่วยเวลา : " />
+			<p:inputText id="unit_type" value="" label="หน่วยเวลา "
+				required="true" >
+
+
+			</p:inputText>
+			
+			<p:outputLabel for="unit_price" value="ราคา : " />
+			<p:inputText id="unit_price" value="" label="ราคา "
+				required="true" >
+
+
+			</p:inputText>
+			
+			<p:outputLabel for="projectname" value="ชื่อโปรเจ็ค : " />
+			<p:inputText id="projectname" value="" label="ชื่อโปรเจ็ค "
+				required="true" >
+
+
+			</p:inputText>
+			
+		</h:panelGrid>
+
+	<p:commandButton value="Add"> </p:commandButton>
+
+	</h:form>
+</h:body>
+</html>

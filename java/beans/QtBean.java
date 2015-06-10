@@ -19,6 +19,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.primefaces.context.RequestContext;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -59,7 +60,7 @@ public class QtBean implements Serializable {
 
 		}
 	}
-
+	
 	public Map<String, Product_Domain> getShowSelect() {
 
 		for (int i = 0; i < 5; i++) {
