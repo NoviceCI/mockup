@@ -1,0 +1,75 @@
+
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+		<p:panel id="panel">
+			<p:messages autoUpdate="true"></p:messages>
+			<p:tabView>
+				<p:tab title="ค้นหาใบ PO">
+					<h:form id="search">
+						<h:panelGrid columns="4" cellpadding="5">
+
+							<p:outputLabel for="sponumber" value="PO-Number : " />
+							<p:inputText id="sponumber" value="" required="true">
+							</p:inputText>
+
+							<p:commandButton process="search" update="panel"
+								icon="fa fa-search" value="ค้นหา"></p:commandButton>
+							<p:commandButton value="ยกเลิก" update="panel" process="@this"
+								icon="fa fa-times-circle">
+								<p:resetInput target="panel" />
+							</p:commandButton>
+
+						</h:panelGrid>
+					</h:form>
+				</p:tab>
+				<p:tab title="สร้าPO">
+					<h:form id="add">
+						<h:panelGrid columns="4" cellpadding="5">
+
+
+							<p:outputLabel for="ponumber" value="PO-Number: " />
+							<p:inputText id="ponumber" value="" required="true"
+								label="PO-Number">
+							</p:inputText>
+						</h:panelGrid>
+					</h:form>
+					<h:form>
+						<h:panelGrid columns="1">
+							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
+								paginatorPosition="bottom" rows="15">
+
+
+
+							</p:dataTable>
+						</h:panelGrid>
+					</h:form>
+					<br />
+					<br />
+					
+					<p:commandButton value="บันทึก" update="add" ajax="true"
+						validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
+					<p:commandButton value="ยกเลิก" update="panel" process="@this"
+						icon="fa fa-times-circle">
+						<p:resetInput target="panel" />
+					</p:commandButton>
+
+				</p:tab>
+			</p:tabView>
+			<br />
+			<h:form>
+				<p:dataTable tableStyle="table-layout: auto;" paginator="true"
+					paginatorPosition="bottom" rows="15">
+
+
+
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition>
