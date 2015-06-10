@@ -16,19 +16,19 @@
 					sticky="false"></p:messages>
 				<p:tabView onTabChange="clearMessage()">
 
-					<p:tab title="Search Employee">
+					<p:tab title="ค้นหาตำแหน่ง">
 
 						<h:form id="search">
 
 							<h:panelGrid cellpadding="6" columns="5">
 
-								<h:outputLabel for="sname" value="Position Name : " />
+								<h:outputLabel for="sname" value="ค้นหาด้วยชื่อตำแหน่ง : " />
 								<p:inputText id="sname" value="" required="true"
 									label="PositionName" />
 
-								<p:commandButton icon="fa fa-search" value="Search"
+								<p:commandButton icon="fa fa-search" value="ค้นหา"
 									update="search" process="search"></p:commandButton>
-								<p:commandButton value="cancel" update="panel" process="@this"
+								<p:commandButton value="ยกเลิก" update="panel" process="@this"
 									icon="fa fa-times-circle">
 									<p:resetInput target="panel" />
 								</p:commandButton>
@@ -40,15 +40,15 @@
 
 					</p:tab>
 
-					<p:tab title="Create Postition">
+					<p:tab title="สร้างตำแหน่ง">
 						<h:form id="add">
 
 
 
 							<h:panelGrid columns="6" cellpadding="8">
 
-								<p:outputLabel for="Position" value="Position Name: " />
-								<p:inputText id="Position" value="" label="Position"
+								<p:outputLabel for="Position" value="ชื่อตำแหน่ง : " />
+								<p:inputText id="Position" value="" label="ชื่อตำแหน่ง"
 									required="true">
 								</p:inputText>
 
@@ -56,8 +56,8 @@
 
 
 
-								<p:outputLabel for="address" value="Description" />
-								<p:inputTextarea id="address" rows="5" cols="33" value=""
+								<p:outputLabel for="address" value="คำอธิบาย : " />
+								<p:inputTextarea id="address" rows="5" cols="33" label="คำอธิบายตำแหน่ง" value=""
 									required="true">
 									
 
@@ -70,9 +70,9 @@
 							<br />
 							<br />
 
-							<p:commandButton value="save" update="add" ajax="true"
+							<p:commandButton value="บันทึก" update="add" ajax="true"
 								validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
-							<p:commandButton value="cancel" update="panel" process="@this"
+							<p:commandButton value="ยกเลิก" update="panel" process="@this"
 								icon="fa fa-times-circle">
 								<p:resetInput target="panel" />
 							</p:commandButton>

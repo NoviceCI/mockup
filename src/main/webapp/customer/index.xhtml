@@ -13,23 +13,23 @@
 					sticky="false"></p:messages>
 				<p:tabView onTabChange="clearMessage()">
 
-					<p:tab title="Search Customer">
+					<p:tab title="ค้นหาข้อมูลลูกค้า">
 
 						<h:form id="search">
 
 							<h:panelGrid cellpadding="6" columns="6">
 
-								<h:outputLabel for="sname" value="First Name : " />
+								<h:outputLabel for="sname" value="ชื่อลูกค้า : " />
 								<p:inputText id="sname" value="" required="true"
-									label="firstName" />
+									label="ชื่อ" />
 
-								<h:outputLabel for="firstname" value="Company Name : " />
+								<h:outputLabel for="firstname" value="ชื่อบริษัท : " />
 								<p:inputText id="scompany" value="" required="true"
-									label="companyname" />
+									label="ชื่อบริษัท" />
 
-								<p:commandButton icon="fa fa-search" value="Search"
+								<p:commandButton icon="fa fa-search" value="ค้นหา"
 									update="search" process="search"></p:commandButton>
-								<p:commandButton value="cancel" update="panel" process="@this"
+								<p:commandButton value="ยกเลิก" update="panel" process="@this"
 									icon="fa fa-times-circle">
 									<p:resetInput target="panel" />
 								</p:commandButton>
@@ -41,50 +41,50 @@
 
 					</p:tab>
 
-					<p:tab title="Create Customer">
+					<p:tab title="ส้รางข้อมูลลูกค้า">
 						<h:form id="add">
 
 
 
 							<h:panelGrid columns="6" cellpadding="8">
 
-								<h:outputLabel for="firstname" value="First Name : " />
+								<h:outputLabel for="firstname" value="ชื่อลูกค้า : " />
 								<p:inputText id="firstname" value="" required="true"
-									label="firstName" />
+									label="ชื่อลูกค้า" />
 
-								<h:outputLabel for="lastname" value="Last Name : " />
+								<h:outputLabel for="lastname" value="นามสกุลลูกค้า : " />
 								<p:inputText id="lastname" value="" required="true"
-									label="lastname" />
+									label="นามสกุลลูกค้า" />
 
-								<h:outputLabel for="company" value="Company : " />
+								<h:outputLabel for="company" value="ชื่อบริษัท : " />
 								<p:inputText id="company" value="" required="true"
-									label="company" />
+									label="ชื่อบริษัท" />
 
 
-								<h:outputLabel for="branch" value="Branch : " />
-								<p:inputText id="branch" value="" required="true" label="branch" />
+								<h:outputLabel for="branch" value="ชื่อสาขา : " />
+								<p:inputText id="branch" value="" required="true" label="ชื่อสาขา" />
 
 
-								<h:outputLabel for="address" value="Address : " />
+								<h:outputLabel for="address" value="ที่อยู่ : " />
 								<p:inputTextarea id="address" value="" required="true"
-									label="address" />
+									label="ที่อยู่" />
 
-								<h:outputLabel for="telmobile" value="Tel-Mobile : " />
+								<h:outputLabel for="telmobile" value="เบอร์โทรศัพท์มือถือ : " />
 								<p:inputText id="telmobile" value="" required="true"
-									label="telmobile" />
+									label="เบอร์โทรศัพท์มือถือ" />
 
 
-								<h:outputLabel for="telcompany" value="Tel-Company : " />
+								<h:outputLabel for="telcompany" value="เบอร์โทรศัพท์บริษัท : " />
 								<p:inputText id="telcompany" value="" required="true"
-									label="telcompany" />
+									label="เบอร์โทรศัพท์บริษัท" />
 
-								<h:outputLabel for="faxnumber" value="Fax-Number : " />
+								<h:outputLabel for="faxnumber" value="เบอร์โทรสาร/เบอร์แฟกซ์  : " />
 								<p:inputText id="faxnumber" value="" required="true"
-									label="faxnumber" />
+									label="บอร์โทรสาร/เบอร์แฟกซ์ " />
 
 
-								<h:outputLabel for="taxid" value="TAX-ID" />
-								<p:inputText id="taxid" value="" required="true" label="TAX-ID" />
+								<h:outputLabel for="taxid" value="เลขประตัวผู้เสียภาษีของลูกค้า" />
+								<p:inputText id="taxid" value="" required="true" label="เลขประตัวผู้เสียภาษีของลูกค้า" />
 
 
 							</h:panelGrid>

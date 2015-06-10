@@ -16,15 +16,15 @@
 					sticky="false"></p:messages>
 				<p:tabView onTabChange="clearMessage()">
 
-					<p:tab title="Search Employee">
+					<p:tab title="ค้นหาพนักงาน">
 
 						<h:form id="search">
 
 							<h:panelGrid cellpadding="6" columns="5">
 
-								<h:outputLabel for="sname" value="First Name : " />
+								<h:outputLabel for="sname" value="ค้นหาด้วยชื่อจริง : " />
 								<p:inputText id="sname" value="" required="true"
-									label="firstName" />
+									label="ชื่อจริง" />
 
 								<p:commandButton icon="fa fa-search" value="Search"
 									update="search" process="search"></p:commandButton>
@@ -40,14 +40,14 @@
 
 					</p:tab>
 
-					<p:tab title="Create Employee">
+					<p:tab title="สร้างพนักงาน">
 						<h:form id="add">
 
 
 
 							<h:panelGrid columns="6" cellpadding="10">
 
-								<p:outputLabel for="console" value="Position:" />
+								<p:outputLabel for="console" value="เลือกตำแหน่ง:" />
 								<p:selectOneMenu id="console" value="" style="width:125px">
 									<f:selectItem itemLabel="HR" itemValue="HR" />
 									<f:selectItem itemLabel="S DEV " itemValue="S DEV" />
@@ -55,7 +55,7 @@
 								</p:selectOneMenu>
 
 
-								<p:outputLabel for="firstname" value="Firstname:" />
+								<p:outputLabel for="firstname" value="ชื่อจริง :" />
 								<p:inputText id="firstname" value="" required="true"
 									label="Firstname" placeholder="ชื่อจริง"
 									requiredMessage="กรุณากรอกชื่อ"
@@ -66,23 +66,22 @@
 
 
 
-								<p:outputLabel for="lastname" value="Lastname:" />
+								<p:outputLabel for="lastname" value="นามสกุล :" />
 								<p:inputText id="lastname" value="" label="Lastname"
-									required="true" placeholder="นามสกุลจริง"
-									requiredMessage="กรุณากรอกนามสกุล"
+									required="true" requiredMessage="กรุณากรอกนามสกุล"
 									validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
 									<f:validateLength minimum="2" />
 
 								</p:inputText>
 
 
-								<p:outputLabel value="BirthDay:" for="date" />
+								<p:outputLabel value="วันเกิด : " for="date" />
 								<p:calendar id="date" effect="slide" placeholder="วันเกิด"
 									maxdate="#{now}" navigator="true" locale="de" required="true"
 									requiredMessage="กรุณาเลือกวันเกิด" />
 
 
-								<p:outputLabel for="age" value="Age:" />
+								<p:outputLabel for="age" value="อายุ : " />
 								<p:inputText id="age" value="" label="" required="true"
 									placeholder="อายุ" requiredMessage="กรุณากรอกนามสกุล"
 									validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
@@ -92,7 +91,7 @@
 
 
 
-								<p:outputLabel for="gender" value="Gender:" />
+								<p:outputLabel for="gender" value="เพศ : " />
 								<p:selectOneRadio id="gender" value="" required="true"
 									requiredMessage="กรุณาเลือกเพศ">
 									<f:selectItem itemLabel="Male" itemValue="Male" />
@@ -101,7 +100,7 @@
 
 
 
-								<p:outputLabel for="address" value="Address:" />
+								<p:outputLabel for="address" value="ที่อยู่ :" />
 								<p:inputTextarea id="address" rows="5" cols="33" value=""
 									requiredMessage="กรุณาระบุที่อยู่ " required="true"
 									validatorMessage="กรุณาใส่ที่อยู่จริง">
@@ -122,7 +121,7 @@
 
 
 
-								<p:outputLabel for="TelHome" value="TelHome:" />
+								<p:outputLabel for="TelHome" value="เบอร์โทรศัพท์บ้ายน : " />
 								<p:inputText id="TelHome" value="" label="TelHome"
 									required="true" placeholder="เบอร์โทรศัพท์"
 									requiredMessage="กรุณากรอกเบอร์โทรศัพท์"
@@ -130,6 +129,14 @@
 									<f:validateLength minimum="8" />
 
 								</p:inputText>
+
+
+								<p:outputLabel value="วันเที่เริ่มทำงาน : " for="startwork" />
+								<p:calendar  effect="slide" id="startwork"
+									maxdate="#{now}" navigator="true" required="true"
+									requiredMessage="กรุณาวันเริ่มทำงาน" />
+
+
 
 
 

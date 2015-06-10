@@ -10,7 +10,7 @@
 		<p:panel id="panel">
 			<p:messages autoUpdate="true"></p:messages>
 			<p:tabView>
-				<p:tab title="Search User">
+				<p:tab title="ค้นหาผู้ใช้ระบบ">
 					<h:form id="search">
 						<h:panelGrid columns="4" cellpadding="5">
 
@@ -28,18 +28,18 @@
 						</h:panelGrid>
 					</h:form>
 				</p:tab>
-				<p:tab title="Create User">
+				<p:tab title="สร้างผู้ใช้ระบบ">
 					<h:form id="add">
 						<h:panelGrid columns="4" cellpadding="5">
 
-							<p:outputLabel for="selectemployee" value="Employee: " />
+							<p:outputLabel for="selectemployee" value="เลือกพนักงาน: " />
 							<p:selectOneMenu id="selectemployee" value="" style="width:125px">
 								<f:selectItem itemLabel="Mark" itemValue="HR" />
 								<f:selectItem itemLabel="Jhone " itemValue="S DEV" />
 								<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
 							</p:selectOneMenu>
 
-							<p:outputLabel for="role" value="Role: " />
+							<p:outputLabel for="role" value="เลือกบทบาท: " />
 							<p:selectOneMenu id="role" value="" style="width:125px">
 								<f:selectItem itemLabel="Admim" itemValue="HR" />
 								<f:selectItem itemLabel="Modulator " itemValue="S DEV" />
@@ -60,9 +60,9 @@
 						</h:panelGrid>
 						<br />
 						<br />
-						<p:commandButton value="save" update="add" ajax="true"
+						<p:commandButton value="บันทึก" update="add" ajax="true"
 							validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
-						<p:commandButton value="cancel" update="panel" process="@this"
+						<p:commandButton value="ยกเลิก" update="panel" process="@this"
 							icon="fa fa-times-circle">
 							<p:resetInput target="panel" />
 						</p:commandButton>
