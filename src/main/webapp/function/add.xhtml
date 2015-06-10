@@ -11,64 +11,93 @@
 
 
 		<h:body>
-			<h:form>
-				<p:breadCrumb>
-					<p:menuitem value="home" url="/template.xhtml" />
-					<p:menuitem value="FunctionMangement" url="#" />
-					<p:menuitem value="CreateFunction" url="/function/add.xhtml" />
-				</p:breadCrumb>
-			</h:form>
-			<p:panel id="panel" header="Create function">
-				<h:form id="fu">
+			<p:panel id="panel">
 
-					<p:fieldset legend="Function info" id="func">
+				<p:messages autoUpdate="true" closable="true" id="msgs"
+					sticky="false"></p:messages>
 
-						<h:panelGrid columns="3" cellpadding="5">
+				<p:tabView onTabChange="clearMessage()">
+
+					<p:tab title="Search Function">
 
 
+						<h:form id="search">
+							<h:panelGrid cellpadding="6" columns="6">
 
 
-							<p:outputLabel for="function" value="function Name: " />
-							<p:inputText id="function" value="" label="function"
-								required="true" placeholder="ฟังก์ชั่น"
-								requiredMessage="กรุณากรอกนามสกุล"
-								validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
-								<f:validateLength minimum="2" />
+								<h:outputLabel for="function" value="Function Name : "
+									/>
+								<p:inputText id="functionName" value="" required="true"
+									label="Function Name" />
 
-							</p:inputText>
-							<p:message for="function" id="msgLastname" />
+								<h:outputLabel for="url" value="URl : " />
+								<p:inputText id="url" value="" required="true" label="URL" />
+
+								<p:commandButton icon="fa fa-search" value="Search"
+									update="search" process="search"></p:commandButton>
+								<p:commandButton value="cancel" update="panel" process="@this"
+									icon="fa fa-times-circle">
+									<p:resetInput target="panel" />
+								</p:commandButton>
+
+							</h:panelGrid>
+
+						</h:form>
+
+					</p:tab>
+
+					<p:tab title="Create Function">
+						<h:form id="add">
+
+							<h:panelGrid columns="6" cellpadding="8">
+
+								<h:outputLabel for="FunctionName" value="Function Name : "
+									/>
+								<p:inputText id="FunctionName" value="" required="true"
+									label="FunctionName" />
+
+								<h:outputLabel for="Url" value="URL : " />
+								<p:inputText id="URL" value="" required="true" label="URL" />
+
+							</h:panelGrid>
+
+							<p:commandButton value="save" update="add" ajax="true"
+								validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
+							<p:commandButton value="cancel" update="panel" process="@this"
+								icon="fa fa-times-circle">
+								<p:resetInput target="panel" />
+							</p:commandButton>
+						</h:form>
+					</p:tab>
+
+				</p:tabView>
+
+				<p:dataTable value="#{functionBean.functions}"  var="function"
+					rowIndexVar="index" tableStyle="table-layout: auto;"
+					paginator="true" paginatorPosition="bottom" rows="15">
+					<p:column headerText="#">
+						<h:outputText value="#{index+1}" />
+					</p:column>
+				
+					<p:column headerText="Function Name">
+						<h:outputText value="#{function.name}" />
+					</p:column>
+					
+						<p:column headerText="URL">
+						<h:outputText value="#{function.url}" />
+					</p:column>
+				
+				</p:dataTable>
 
 
 
-
-							<p:outputLabel for="address" value="url" />
-							<p:inputText  id="address" value=""
-								requiredMessage="กรุณาระบุที่อยู่ " required="true"
-								validatorMessage="กรุณาใส่ที่อยู่จริง">
-								<f:validateLength minimum="10" />
-
-							</p:inputText >
-							<p:message for="address" id="msgAddress" />
-
-						</h:panelGrid>
-
-					</p:fieldset>
-
-					<br />
-					<br />
-
-
-
-					<br />
-					<br />
-
-					<p:commandButton value="Add"  update="func"  process="@form"/>
-					<p:commandButton value="Cancel" update="func" />
-
-
-				</h:form>
 			</p:panel>
 
+			<script type="text/javascript">
+				function clearMessage() {
+					$('#msgs').html('');
+				}
+			</script>
 
 		</h:body>
 

@@ -15,20 +15,19 @@ import beans.HelperClass;
 @SessionScoped
 public class CustomerBean {
 
-	
 	List<Customer> customers = new ArrayList<Customer>();
 
-	
 	@PostConstruct
-	public void init(){
+	public void init() {
 		for (int i = 0; i < 20; i++) {
-			customers.add(new Customer(HelperClass.genString(),HelperClass.genString(),HelperClass.genString(),HelperClass.genString(),HelperClass.genString()
-					,HelperClass.genString(),HelperClass.generateRandom(10),HelperClass.generateRandom(10),HelperClass.generateRandom(10)));
+			customers.add(new Customer(HelperClass.genString(), HelperClass
+					.genString(), HelperClass.genString(), HelperClass
+					.genString(), HelperClass.genString(), HelperClass
+					.genString(), HelperClass.generateRandom(10), HelperClass
+					.generateRandom(10), HelperClass.generateRandom(10)));
 		}
 	}
-	
-	
-	
+
 	public List<Customer> getCustomers() {
 		return customers;
 	}
@@ -36,9 +35,5 @@ public class CustomerBean {
 	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
 	}
-	
-	
-	
-	
-	
+
 }

@@ -26,67 +26,108 @@
 					</p:menuitem>
 				</p:tabMenu>
 
-				<h:panelGrid columns="6" cellpadding="4">
-				
-				
-					<p:outputLabel value="Company Name: " />
-					<p:selectOneMenu id="company" value="" style="width:400px">
-						<f:selectItem itemLabel="Company" />
-						<f:selectItem itemLabel="Company002" itemValue="2" />
-						<f:selectItem itemLabel="Company003" itemValue="3" />
-						<f:validateDoubleRange />
-					</p:selectOneMenu>
-					
-				
-					<p:outputLabel for="firstname" value="Contant name:" />
-					<p:inputText id="firstname" value="" required="true"
-						label="Firstname" placeholder="ชื่อจริง"
-						requiredMessage="กรุณากรอกชื่อ"
-						validatorMessage="กรุณาใส่ตัวอักษร 3-30 ตัวอักษร">
-						<f:validateLength minimum="3" maximum="30" />
-					</p:inputText>
 
-					<p:outputLabel for="firstname" value="lastname:" />
-					<p:inputText id="lastname" value="" label="Lastname"
-						required="true" placeholder="นามสกุลจริง"
-						requiredMessage="กรุณากรอกนามสกุล"
-						validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
-						<f:validateLength minimum="2" />
 
-					</p:inputText>
-						
+				<p:panel id="toggleable" header="Toggleable" toggleable="true" toggleSpeed="500" 
+					widgetVar="panel" style="margin-bottom:20px">
+					<h:panelGrid columns="6" cellpadding="4">
+						<p:outputLabel value="Company Name: " />
+						<p:selectOneMenu id="company" value="" style="width:400px">
+							<f:selectItem itemLabel="Company" />
+							<f:selectItem itemLabel="Company002" itemValue="2" />
+							<f:selectItem itemLabel="Company003" itemValue="3" />
+							<f:validateDoubleRange />
+						</p:selectOneMenu>
+
+
+						<p:outputLabel for="firstname" value="Contant name:" />
+						<p:inputText id="firstname" value="" required="true"
+							label="Firstname" placeholder="ชื่อจริง"
+							requiredMessage="กรุณากรอกชื่อ"
+							validatorMessage="กรุณาใส่ตัวอักษร 3-30 ตัวอักษร">
+							<f:validateLength minimum="3" maximum="30" />
+						</p:inputText>
+
+						<p:outputLabel for="firstname" value="lastname:" />
+						<p:inputText id="lastname" value="" label="Lastname"
+							required="true" placeholder="นามสกุลจริง"
+							requiredMessage="กรุณากรอกนามสกุล"
+							validatorMessage="กรุณาใส่นามสกุลอย่างน้อย 2 ตัวอักษร">
+							<f:validateLength minimum="2" />
+
+						</p:inputText>
+
+
+
+
+						<p:outputLabel for="address" value="Address:" />
+						<p:inputTextarea id="address" rows="5" cols="33" value=""
+							requiredMessage="กรุณาระบุที่อยู่ " required="true"
+							validatorMessage="กรุณาใส่ที่อยู่จริง">
+							<f:validateLength minimum="10" />
+
+						</p:inputTextarea>
+
+						<p:outputLabel for="mobile" value="Mobile:" />
+						<p:inputText id="mobile" value="" label="Mobile" required="true"
+							placeholder="เบอร์โทรศัพท์มือถือ"
+							requiredMessage="กรุณากรอกใส่เบอร์โทรศัพท์"
+							validatorMessage="กรุณากรอกใส่เบอร์โทรศัพท์ 10 หลัก">
+							<f:validateLength minimum="10" />
+
+						</p:inputText>
+
+
+						<p:outputLabel for="phone" value="Phone:" />
+						<p:inputText id="phone" value="" label="Phone" required="true"
+							placeholder="เบอร์โทรศัพท์" requiredMessage="กรุณากรอกนามสกุล"
+							validatorMessage="กรุณากรอกใส่เบอร์โทรศัพท์  8-10 หลัก">
+							<f:validateLength minimum="8" maximum="10" />
+
+						</p:inputText>
+
+						<p:outputLabel for="fax" value="Fax :" />
+						<p:inputText id="fax" value="" label="fax" required="true"
+							placeholder="เฟ็กส์" requiredMessage="กรุณากรอกนามสกุล"
+							validatorMessage="กรุณากรอกใส่เบอร์โทรศัพท์  8-10 หลัก">
+							<f:validateLength minimum="8" maximum="10" />
+
+						</p:inputText>
+					</h:panelGrid>
+				</p:panel>
+	
+				<p:dataTable>
+					<p:column headerText="No." >
+						<h:outputText value="#{index+1}" />
+					</p:column>
+					<p:column headerText="Descriptions" />
+					<p:column headerText="Duration" />
+					<p:column headerText="Unit Price" />
+					<p:column headerText="Amount" />
+				</p:dataTable>
+				
+			
+				<p:commandButton value="Add Item" />
+
+				<p:outputLabel for="console" value="Product Name: " />
+				<p:selectOneMenu id="console" value="#{qt.selectProduct}"
+					style="width:400px">
+					<f:selectItems value="#{qt.listProduct}" var="product"
+						itemValue="#{product.id}" itemLabel="#{product.name}"></f:selectItems>
+					<f:converter converterId="cpc"></f:converter>
+				</p:selectOneMenu>
+
+				<p:outputLabel for="price" value="Price : "></p:outputLabel>
+				<p:inputText id="price" value=""></p:inputText>
+
+				<p:outputLabel for="qty" value="Qty: "></p:outputLabel>
+				<p:inputText id="qty" value="#{qt.qty}"></p:inputText>
+
+
 				
 
-				
-					<p:outputLabel for="address" value="Address:" />
-					<p:inputTextarea id="address" rows="5" cols="33" value=""
-						requiredMessage="กรุณาระบุที่อยู่ " required="true"
-						validatorMessage="กรุณาใส่ที่อยู่จริง">
-						<f:validateLength minimum="10" />
 
-					</p:inputTextarea>
-		
-					<p:outputLabel for="mobile" value="Mobile:" />
-					<p:inputText id="mobile" value="" label="Mobile"
-						required="true" placeholder="เบอร์โทรศัพท์มือถือ"
-						requiredMessage="กรุณากรอกใส่เบอร์โทรศัพท์"
-						validatorMessage="กรุณากรอกใส่เบอร์โทรศัพท์ 10 หลัก">
-						<f:validateLength minimum="10" />
 
-					</p:inputText>
-					
-					
-					<p:outputLabel for="phone" value="Phone:" />
-					<p:inputText id="phone" value="" label="Phone"
-						required="true" placeholder="เบอร์โทรศัพท์"
-						requiredMessage="กรุณากรอกนามสกุล"
-						validatorMessage="กรุณากรอกใส่เบอร์โทรศัพท์  8-10 หลัก">
-						<f:validateLength minimum="8" maximum="10" />
-
-					</p:inputText>
-				
-				
-			</h:panelGrid>
 			</h:form>
 
 
