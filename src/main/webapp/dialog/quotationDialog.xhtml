@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>ใบเสนอราคา</title>
+	<style type="text/css">
+.ui-widget {
+	font-size: 90%;
+}
+</style>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2" cellpadding="2">
+
+
+			<p:outputLabel for="qt_id" value="เลขที่ใบเสนอราคา :" />
+			<p:inputText id="qt_id" value="" required="true"
+				label="เลขที่ใบเสนอราคา">
+
+			</p:inputText>
+		</h:panelGrid>
+
+		<h:panelGrid columns="4" cellpadding="2">
+			<p:outputLabel for="start_date" value="เริ่ม :" />
+			<p:inputText id="start_date" required="true" label="เริ่ม">
+
+			</p:inputText>
+
+			<p:outputLabel for="end_date" value="สิ้นสุด :" />
+			<p:inputText id="end_date" value="" required="true" label="สิ้นสุด">
+
+			</p:inputText>
+
+			<p:commandButton icon="fa fa-search" value="ค้นหา" update="qt_id"
+				process="qt_id">
+			</p:commandButton>
+
+
+		</h:panelGrid>
+		<p:dataTable    tableStyle="table-layout: auto;" paginator="true"
+			paginatorPosition="bottom" rows="10">
+
+			<p:column headerText="เลขที่ใบเสนอราคา" />
+			<h:outputText value="#{index+1}">
+			</h:outputText>
+
+			<p:column headerText="คู่ค้า">
+				<h:outputText value="บริษัท กอไก่" />
+			</p:column>
+
+			<p:column headerText="วันที่ออก">
+				<h:outputText value="06/06/2015" />
+			</p:column>
+
+			<p:column headerText="จำนวนเงิน">
+				<h:outputText value="10000" />
+			</p:column>
+
+			<p:column headerText="เลือก" style="text-align: center;width:auto">
+				
+			</p:column>
+
+			<p:outputLabel></p:outputLabel>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

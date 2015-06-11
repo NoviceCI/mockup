@@ -16,15 +16,15 @@
 
 				<p:tabView onTabChange="clearMessage()">
 
-					<p:tab title="ค้นหาใบเสนอราคา">
+					<p:tab title="ค้นหาใบกำกับราคาสินค้า">
 						<h:form id="search">
 							<div align="center" style="padding-bottom: 1%">
 								<h:panelGrid cellpadding="6" columns="15">
 
 
-									<h:outputLabel for="qt_id" value="เลขที่ใบแจ้งหนี้ : " />
+									<h:outputLabel for="qt_id" value="เลขที่ใบกำกับราคาสินค้า : " />
 									<p:inputText id="qt_id" value="" required="true"
-										label="เลขที่ใบแจ้งหนี้" />
+										label="เลขที่ใ	บกำกับราคาสินค้า" />
 
 									<h:outputLabel for="bill_id" value="เลขที่บิล : " />
 									<p:inputText id="bill_id" value="" required="true"
@@ -60,9 +60,8 @@
 							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
 								paginatorPosition="bottom" rows="10">
 
-								<p:column headerText="เลขที่ใบแจ้งหนี้" />
-								<h:outputText value="">
-								</h:outputText>
+								<p:column headerText="เลขที่ใบกำกับราคาสินค้า "/>
+							
 
 								<p:column headerText="บริษัท" />
 								<p:column headerText="รายละเอียด" />
@@ -73,15 +72,15 @@
 						</h:form>
 					</p:tab>
 
-					<p:tab title="สร้างใบเสนอราคา">
+					<p:tab title="สร้างใบกำกับราคาสินค้า">
 						<h:form id="add">
 
 
 							<div align="right" style="padding-top: 1%;">
 
-								<h:outputLabel for="qt_id" value="เลขที่ใบเสนอราคา : " />
+								<h:outputLabel for="qt_id" value="เลขที่ใบกำกับราคาสินค้า : " />
 								<p:inputText id="qt_id" value="" required="true"
-									label="เลขที่ใบเสนอราคา" />
+									label="เลขที่ใบกำกับราคาสินค้า" />
 
 								<br> </br>
 
@@ -142,7 +141,19 @@
 
 							</h:panelGrid>
 
+							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
+								paginatorPosition="bottom" rows="10">
 
+								<p:column headerText="#" />
+								<h:outputText value="">
+								</h:outputText>
+
+								<p:column headerText="บริษัท" />
+								<p:column headerText="รายละเอียด" />
+								<p:column headerText="วันที่ออก" />
+								<p:column headerText="จำนวนเงิน" />
+
+							</p:dataTable>
 						</h:form>
 					</p:tab>
 				</p:tabView>
