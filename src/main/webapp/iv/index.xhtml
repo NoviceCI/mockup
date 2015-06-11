@@ -18,24 +18,131 @@
 
 					<p:tab title="ค้นหาใบเสนอราคา">
 						<h:form id="search">
-							<h:panelGrid cellpadding="2" columns="8">
+							<div align="center" style="padding-bottom: 1%">
+								<h:panelGrid cellpadding="6" columns="15">
 
-							</h:panelGrid>
+
+									<h:outputLabel for="qt_id" value="เลขที่ใบแจ้งหนี้ : " />
+									<p:inputText id="qt_id" value="" required="true"
+										label="เลขที่ใบแจ้งหนี้" />
+
+									<h:outputLabel for="bill_id" value="เลขที่บิล : " />
+									<p:inputText id="bill_id" value="" required="true"
+										label="เลขที่บิล" />
+
+
+									<h:outputLabel for="po_id" value="เลขที่ใบสั่งซื้อ : " />
+									<p:inputText id="po_id" value="" required="true"
+										label="ชื่อบริษัท" />
+
+									<h:outputLabel for="company" value="ชื่อบริษัท : " />
+									<p:inputText id="company" value="" required="true"
+										label="ชื่อบริษัท" />
+
+
+
+
+
+								</h:panelGrid>
+
+
+								<h:panelGrid cellpadding="4" columns="10">
+									<p:commandButton icon="fa fa-search" value="ค้นหา"
+										update="search" process="search"></p:commandButton>
+
+									<p:commandButton value="ยกเลิก" update="panel" process="@this"
+										icon="fa fa-times-circle">
+										<p:resetInput target="panel" />
+									</p:commandButton>
+								</h:panelGrid>
+							</div>
+
+							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
+								paginatorPosition="bottom" rows="10">
+
+								<p:column headerText="เลขที่ใบแจ้งหนี้" />
+								<h:outputText value="">
+								</h:outputText>
+
+								<p:column headerText="บริษัท" />
+								<p:column headerText="รายละเอียด" />
+								<p:column headerText="วันที่ออก" />
+								<p:column headerText="จำนวนเงิน" />
+
+							</p:dataTable>
 						</h:form>
 					</p:tab>
 
 					<p:tab title="สร้างใบเสนอราคา">
 						<h:form id="add">
 
-							<h:panelGrid columns="2" cellpadding="10">
+
+							<div align="right" style="padding-top: 1%;">
+
 								<h:outputLabel for="qt_id" value="เลขที่ใบเสนอราคา : " />
 								<p:inputText id="qt_id" value="" required="true"
-									label="เลขที่ใบเสนอราคา"/>
+									label="เลขที่ใบเสนอราคา" />
+
+								<br> </br>
+
+								<p:outputLabel value="อ้างอิง (QT, PO):" />
+
+								<p:commandButton value="ใบเสนอราคา " icon="fa fa-copy"
+									actionListener="#{dialogFunction.openDialogQuotation}"
+									process="@this">
+								</p:commandButton>
 
 
-							
-							
+
+								<p:commandButton value="ใบสั่งซื้อ " icon="fa fa-copy"
+									actionListener="#{dialogFunction.openDialogPurchaseOrder}"
+									process="@this">
+
+								</p:commandButton>
+
+
+
+							</div>
+
+							<h:panelGrid columns="4" cellpadding="10">
+								<p:outputLabel for="Invoice_Date" value="วันที่ออก:" />
+								<p:inputText id="Invoice_Date" label="วันที่ออก">
+
+								</p:inputText>
+
+
+								<p:outputLabel for="Due_Date" value="วันที่กำหนดชำระเงิน :" />
+								<p:inputText id="Due_Date" label="วันที่กำหนดชำระเงิน">
+
+								</p:inputText>
+
+
+								<p:outputLabel for="cus_name" value="ชื่อบริษัท :" />
+								<p:inputText id="cus_name" label="ชื่อบริษัท">
+								</p:inputText>
+
+								<p:outputLabel for="cus_address" value="ที่อยู่" />
+								<p:inputTextarea id="cus_address" label="ที่อยู่" cols="30"
+									rows="6">
+
+								</p:inputTextarea>
+
+								<p:outputLabel for="cus_tax" value="เลขผู้เสียภาษี (ลูกค้า) :" />
+								<p:inputText id="cus_tax" label="เลขผู้เสียภาษี (ลูกค้า)">
+								</p:inputText>
+
+								<p:outputLabel for="cus_phone" value="เบอร์ติดต่อ (ลูกค้า) :" />
+								<p:inputText id="cus_phone" label="เบอร์ติดต่อ (ลูกค้า)">
+								</p:inputText>
+
+								<p:outputLabel for="cus_fax" value="เบอร์แฟ๊กซ์ (ลูกค้า) :" />
+								<p:inputText id="cus_fax" label="เบอร์แฟ๊กซ์ (ลูกค้า)">
+								</p:inputText>
+
+
 							</h:panelGrid>
+
+
 						</h:form>
 					</p:tab>
 				</p:tabView>

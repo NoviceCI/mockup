@@ -46,7 +46,7 @@ public class QuotationBean {
         options.put("contentHeight", 400);
         options.put("contentWidth", 700);
 		
-		RequestContext.getCurrentInstance().openDialog("addEmployee",options,null);
+		RequestContext.getCurrentInstance().openDialog("/dialog/addEmployee",options,null);
 		
 	}
 	

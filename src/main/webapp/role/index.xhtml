@@ -40,9 +40,9 @@
 					<p:tab title="สร้างโรล">
 						<h:form id="add">
 
-							<h:panelGrid columns="2" cellpadding="8">
+							<h:panelGrid columns="2" cellpadding="10" style="width:100%">
 								<h:form>
-									<h:panelGrid columns="2">
+									<h:panelGrid columns="2" cellpadding="8">
 										<p:outputLabel for="Position" value="ชื่อโรล : " />
 										<p:inputText id="Position" value="" label="Position"
 											required="true" placeholder="role"
@@ -65,22 +65,12 @@
 								</h:form>
 								<h:form>
 									<h:panelGrid columns="1">
-										<h:panelGrid columns="7">
+										<h:panelGrid columns="5">
 											<p:outputLabel for="function" value="เลือกฟังก์ชั่น : " />
-											<p:selectOneMenu id="function" value="" style="width:125px">
-												<f:selectItem itemLabel="QT1" itemValue="HR" />
-												<f:selectItem itemLabel="QT2" itemValue="S DEV" />
-												<f:selectItem itemLabel="PO" itemValue="Accounting" />
-											</p:selectOneMenu>
+											<p:commandButton id="function" actionListener="#{dialogFunction.openDialog}" process="@this" value="เลือก">
+												
+											</p:commandButton>
 
-											<p:outputLabel for="basic" value="เลือกสิทธิในการใช้งาน : " />
-											<p:selectManyCheckbox id="basic"
-												value="#{checkboxView.selectedConsoles}">
-												<f:selectItem itemLabel="Add " itemValue="Xbox One" />
-												<f:selectItem itemLabel="Update " itemValue="PS4" />
-												<f:selectItem itemLabel="Delete " itemValue="Wii U" />
-											</p:selectManyCheckbox>
-											<p:commandButton icon="fa fa-plus"></p:commandButton>
 
 										</h:panelGrid>
 

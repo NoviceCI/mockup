@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:panel id="search">
+			<p:messages autoUpdate="true"></p:messages>
+			<h:panelGrid cellpadding="5" columns="4">
+
+				<h:outputLabel for="sname" value="ค้นหาด้วยชื่อฟังก์ชั่น : " />
+				<p:inputText id="sname" value="" required="true" label="ชื่อจริง" />
+
+				<p:commandButton icon="fa fa-search" value="ค้นหา" update="search"
+					process="search"></p:commandButton>
+				<p:commandButton value="ยกเลิก" update="search" process="@this"
+					icon="fa fa-times-circle">
+					<p:resetInput target="panel" />
+				</p:commandButton>
+
+			</h:panelGrid>
+
+			<br />
+			<br />
+
+			<p:dataTable value="#{functionBean.functions}" var="function"
+				rowIndexVar="index" 
+				paginator="true" paginatorPosition="bottom" rows="15">
+				<p:column headerText="#" style="width:10%;text-align: center;">
+					<h:outputText value="#{index+1}" />
+				</p:column>
+
+				<p:column headerText="ชื่อฟังก์ชัน" style="width:20%">
+					<h:outputText value="#{function.name}" />
+				</p:column>
+
+				<p:column headerText="URL" style="width:20%">
+					<h:outputLink value="#" id="fade">
+						<h:outputText value="=ชี้เพื่อตรวจสอบลิงค์"></h:outputText>
+					</h:outputLink>
+					<p:tooltip  for="fade" value="#{function.url}"></p:tooltip>
+				</p:column>
+
+				<p:column headerText="สิทธิการในการใช้งาน" style="width:20%">
+					<p:selectManyCheckbox id="basic" layout="grid" columns="1" style="text">
+						<f:selectItem itemLabel="Add " itemValue="Xbox One" />
+						<f:selectItem itemLabel="Update " itemValue="PS4" />
+						<f:selectItem itemLabel="Delete " itemValue="Wii U" />
+					</p:selectManyCheckbox>
+				</p:column>
+
+
+				<p:column style="text-align: center;width:auto">
+					<p:commandButton value="เลือก" ></p:commandButton>
+				</p:column>
+
+			</p:dataTable>
+
+		</p:panel>
+	</h:form>
+</h:body>
+
+</html>
