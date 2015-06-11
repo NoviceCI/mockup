@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>เลือก พนักงาน</title>
+	<style type="text/css">
+.ui-widget {
+	font-size: 90%;
+}
+</style>
+</h:head>
+
+<h:body>
+	<h:form>
+
+
+		<h:panelGrid columns="2" cellpadding="2">
+
+			<p:outputLabel for="name" value="ชื่อพนักงาน:" />
+			<p:inputText id="name" value="" required="true" label="ชื่อพนักงาน">
+
+			</p:inputText>
+
+			<p:outputLabel for="name" value="ตำแหน่ง  :" />
+			<p:selectOneMenu id="selectemployee" value="">
+				<f:selectItem
+					itemLabel="Professional Service for Senior Java Developer"
+					itemValue="HR" />
+				<f:selectItem itemLabel="Jhone " itemValue="S DEV" />
+				<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
+			</p:selectOneMenu>
+
+
+
+		</h:panelGrid>
+		<p:commandButton value="Add" listener="#{qtBean.closeDialog}"
+			process="@this">
+		</p:commandButton>
+
+	</h:form>
+</h:body>
+</html>

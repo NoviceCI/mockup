@@ -1,0 +1,52 @@
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="content">
+
+
+		<h:body>
+			<p:panel id="panel">
+
+				<p:messages autoUpdate="true" closable="true" id="msgs"
+					sticky="false"></p:messages>
+
+				<p:tabView onTabChange="clearMessage()">
+
+					<p:tab title="ค้นหาใบเสนอราคา">
+						<h:form id="search">
+							<h:panelGrid cellpadding="2" columns="8">
+
+							</h:panelGrid>
+						</h:form>
+					</p:tab>
+
+					<p:tab title="สร้างใบเสนอราคา">
+						<h:form id="add">
+
+							<h:panelGrid columns="2" cellpadding="10">
+								<h:outputLabel for="qt_id" value="เลขที่ใบเสนอราคา : " />
+								<p:inputText id="qt_id" value="" required="true"
+									label="เลขที่ใบเสนอราคา"/>
+
+
+							
+							
+							</h:panelGrid>
+						</h:form>
+					</p:tab>
+				</p:tabView>
+
+			</p:panel>
+
+			<script type="text/javascript">
+				function clearMessage() {
+					$('#msgs').html('');
+				}
+			</script>
+		</h:body>
+	</ui:define>
+</ui:composition>
