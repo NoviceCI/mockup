@@ -20,28 +20,31 @@
 					<p:tab title="ค้นหาใบเสนอราคา">
 
 						<h:form id="search">
-							<h:panelGrid cellpadding="2" columns="10">
+							<h:panelGrid cellpadding="2" columns="8">
 
 
 								<h:outputLabel for="qt_id" value="เลขที่ใบเสนอราคา : " />
 								<p:inputText id="qt_id" value="" required="true"
 									label="เลขที่ใบเสนอราคา" />
 
-								<h:outputLabel for="company" value="ชื่อผู้บริษัท : " />
+								<h:outputLabel for="company" value="ชื่อบริษัท : " />
 								<p:inputText id="company" value="" required="true"
-									label="ชื่อผู้บริษัท" />
+									label="ชื่อบริษัท" />
 
 								<h:outputLabel for="contacts" value="ชื่อผู้ติดต่อ : " />
 								<p:inputText id="contacts" value="" required="true"
 									label="ชื่อผู้ติดต่อ" />
 
-								<h:outputLabel for="Customer_Name" value="ชื่อลูกค้า: " />
-								<p:inputText id="Customer_Name" value="" required="true"
-									label="ชื่อลูกค้า" />
+								
 
 
 
 
+
+
+							</h:panelGrid>
+
+							<div style="padding-left:40%;padding-top: 2%;padding-bottom: 1% ">
 								<p:commandButton icon="fa fa-search" value="ค้นหา"
 									update="search" process="search"></p:commandButton>
 								<p:commandButton value="ยกเลิก" update="panel" process="@this"
@@ -49,7 +52,7 @@
 									<p:resetInput target="panel" />
 								</p:commandButton>
 
-							</h:panelGrid>
+							</div>
 
 							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
 								paginatorPosition="bottom" rows="10">
@@ -72,106 +75,87 @@
 					<p:tab title="สร้างใบเสนอราคา">
 						<h:form id="add">
 
-							<h:panelGroup>
-								<div style="padding-left: 740px">
-									<h:panelGrid columns="2" cellpadding="10">
-										<p:outputLabel for="id" value="เลขที่ใบเสนอราคา :" />
-										<p:inputText id="id" label="เลขที่ใบเสนอราคา"
-											style="width:200px">
-
-										</p:inputText>
-									</h:panelGrid>
-								</div>
-
-								<div style="padding-left: 800px">
-									<h:panelGrid columns="2" cellpadding="10">
-										<p:outputLabel for="ref" value="อ้างอิง :" />
-										<p:inputText id="ref" label="อ้างอิง" style="width:200px">
-
-										</p:inputText>
-									</h:panelGrid>
-								</div>
-								<h:panelGrid columns="4" cellpadding="10">
-									<p:outputLabel for="contantName" value="ชื่อผู้ติดต่อ :" />
-									<p:inputText id="contantName" required="true"
-										label="ชื่อผู้ติดต่อ" style="width:220px">
-
-									</p:inputText>
-
-									<p:outputLabel for="contantPhone" value="เบอร์ติดต่อ : " />
-									<p:inputText id="contantPhone" label="เบอร์ติดต่อ"
-										required="true" style="width:170px">
-
-
-									</p:inputText>
-
-								</h:panelGrid>
-
-
-								<h:panelGrid columns="5" cellpadding="11">
-
-									<p:outputLabel for="companyName" value="ชื่อบริษัท:" />
-									<p:inputText id="companyName" required="true"
-										label="ชื่อบริษัท" style="width:230px ">
-
-									</p:inputText>
-
-									<p:outputLabel for="attention" value="ชื่อ-นามสกุล (ลูกค้า)" />
-									<p:inputText id="attention" required="true"
-										label="ชื่อ (ลูกค้า)">
-
-									</p:inputText>
-
-									<p:inputText id="lastname" required="true"
-										label="นามสกุล  (ลูกค้า)">
-
-									</p:inputText>
-
-
-								</h:panelGrid>
-
-
-
+							<div style="padding-left: 740px">
 								<h:panelGrid columns="2" cellpadding="10">
+									<p:outputLabel for="id" value="เลขที่ใบเสนอราคา :" />
+									<p:inputText id="id" label="เลขที่ใบเสนอราคา"
+										style="width:200px">
 
-									<p:outputLabel for="address" value="ที่อยู่ :" />
-									<p:inputTextarea id="address" label="ที่อยู่ :" rows="5"
-										cols="31" value="">
-
-
-									</p:inputTextarea>
-
+									</p:inputText>
 								</h:panelGrid>
+							</div>
 
-								<h:panelGrid columns="6" cellpadding="10">
-									<p:outputLabel for="mobile" value="เบอร์โทรศัพท์มือถือ" />
-									<p:inputText id="mobile" label="เบอร์โทรศัพท์มือถือ"
-										required="true" style="width:180px">
-
-
-									</p:inputText>
-
-
-									<p:outputLabel for="phone" value="เบอร์โทรศัพท์" />
-									<p:inputText id="phone" label="เบอร์โทรศัพท์" required="true"
-										style="width:170px">
+							<div style="padding-left: 800px">
+								<h:panelGrid columns="2" cellpadding="10">
+									<p:outputLabel for="ref" value="อ้างอิง :" />
+									<p:inputText id="ref" label="อ้างอิง" style="width:200px">
 
 									</p:inputText>
-
-									<p:outputLabel for="fax" value="แฟกซ์ :" />
-									<p:inputText id="fax" label="แฟกซ์" required="true">
-
-									</p:inputText>
-
-
 								</h:panelGrid>
+							</div>
 
 
-							</h:panelGroup>
+							<h:panelGrid columns="4" cellpadding="15">
+								<p:outputLabel for="contantName" value="ชื่อผู้ติดต่อ :" />
+								<p:inputText id="contantName" required="true"
+									label="ชื่อผู้ติดต่อ">
 
-							<p:dataTable  rowIndexVar="index"
-								tableStyle="table-layout: auto;" paginator="true"
-								paginatorPosition="bottom" rows="10">
+								</p:inputText>
+
+								<p:outputLabel for="contantPhone" value="เบอร์ติดต่อ : " />
+								<p:inputText id="contantPhone" label="เบอร์ติดต่อ"
+									required="true">
+
+
+								</p:inputText>
+
+
+
+								<p:outputLabel for="companyName" value="ชื่อบริษัท:" />
+								<p:inputText id="companyName" required="true" label="ชื่อบริษัท">
+
+								</p:inputText>
+
+								<p:outputLabel for="attention" value="ชื่อ-นามสกุล (ลูกค้า)" />
+								<p:inputText id="attention" required="true"
+									label="ชื่อ (ลูกค้า)">
+
+								</p:inputText>
+
+
+								<p:outputLabel for="address" value="ที่อยู่ :" />
+								<p:inputTextarea id="address" label="ที่อยู่ :" rows="5"
+									cols="31" value="">
+
+
+								</p:inputTextarea>
+
+								<p:outputLabel for="mobile" value="เบอร์โทรศัพท์มือถือ" />
+								<p:inputText id="mobile" label="เบอร์โทรศัพท์มือถือ"
+									required="true">
+
+
+								</p:inputText>
+
+
+								<p:outputLabel for="phone" value="เบอร์โทรศัพท์" />
+								<p:inputText id="phone" label="เบอร์โทรศัพท์" required="true">
+
+								</p:inputText>
+
+								<p:outputLabel for="fax" value="แฟกซ์ :" />
+								<p:inputText id="fax" label="แฟกซ์" required="true">
+
+								</p:inputText>
+
+
+							</h:panelGrid>
+
+
+
+
+							<p:dataTable rowIndexVar="index" tableStyle="table-layout: auto;"
+								paginator="true" paginatorPosition="bottom" rows="10">
 								<p:column headerText="#">
 									<h:outputText value="" />
 								</p:column>
@@ -201,7 +185,7 @@
 						<h:form>
 							<p:commandButton value="เพิ่มสินค้า" icon="ui-icon-extlink"
 								actionListener="#{qtBean.addItem}">
-								<p:ajax event="dialogReturn" />
+
 
 
 							</p:commandButton>
@@ -213,8 +197,8 @@
 				</p:tabView>
 
 
-
-
+				<p:commandButton value="บันทึก" icon="ui-icon-extlink" />
+				<p:commandButton value="ยกเลิก" icon="ui-icon-extlink" />
 			</p:panel>
 
 			<script type="text/javascript">

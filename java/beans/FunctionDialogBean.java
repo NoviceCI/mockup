@@ -12,12 +12,6 @@ import org.primefaces.context.RequestContext;
 @RequestScoped
 public class FunctionDialogBean {
 
-	
-	
-	
-	
-	
-	
 	public void openDialog() {
 
 		Map<String, Object> options = new HashMap<String, Object>();
@@ -31,4 +25,26 @@ public class FunctionDialogBean {
 		System.out.print("Open Function Dialog");
 	}
 
+	public void openDialogQuotation() {
+		Map<String, Object> options = new HashMap<String, Object>();
+		options.put("modal", true);
+		options.put("resizable", false);
+		options.put("contentHeight", 600);
+		options.put("contentWidth", 800);
+
+		RequestContext.getCurrentInstance().openDialog(
+				"/dialog/quotationDialog", options, null);
+	}
+
+	public void openDialogPurchaseOrder(){
+		Map<String, Object> options = new HashMap<String, Object>();
+		options.put("modal", true);
+		options.put("resizable", false);
+		options.put("contentHeight", 600);
+		options.put("contentWidth", 800);
+		
+		RequestContext.getCurrentInstance().openDialog(
+				"/dialog/purchaseOrder", options, null);
+	}
+	
 }
