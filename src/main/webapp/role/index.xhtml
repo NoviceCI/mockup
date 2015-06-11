@@ -40,9 +40,9 @@
 					<p:tab title="สร้างโรล">
 						<h:form id="add">
 
-							<h:panelGrid columns="2" cellpadding="10" style="width:100%">
+							<h:panelGrid columns="2" cellpadding="5" style="width:100%">
 								<h:form>
-									<h:panelGrid columns="2" cellpadding="8">
+									<h:panelGrid columns="2" cellpadding="5" >
 										<p:outputLabel for="Position" value="ชื่อโรล : " />
 										<p:inputText id="Position" value="" label="Position"
 											required="true" placeholder="role"
@@ -54,7 +54,7 @@
 
 
 										<p:outputLabel for="address" value="คำอธิบาย : " />
-										<p:inputTextarea id="address" rows="5" cols="33" value=""
+										<p:inputTextarea id="address" rows="5" cols="20" value=""
 											requiredMessage="กรุณาระบุที่อยู่ " required="true"
 											validatorMessage="กรุณาใส่ที่อยู่จริง">
 											<f:validateLength minimum="10" />
@@ -65,17 +65,16 @@
 								</h:form>
 								<h:form>
 									<h:panelGrid columns="1">
-										<h:panelGrid columns="5">
+										<h:panelGrid columns="2" cellpadding="0">
 											<p:outputLabel for="function" value="เลือกฟังก์ชั่น : " />
 											<p:commandButton id="function" actionListener="#{dialogFunction.openDialog}" process="@this" value="เลือก">
 												
 											</p:commandButton>
 
-
+											
 										</h:panelGrid>
 
 										<br />
-
 										<p:dataTable value="#{work.domains}" var="domain"
 											rowIndexVar="index" tableStyle="table-layout: auto;">
 											<p:column headerText="#">
@@ -94,6 +93,7 @@
 											</p:column>
 
 										</p:dataTable>
+										
 									</h:panelGrid>
 								</h:form>
 							</h:panelGrid>

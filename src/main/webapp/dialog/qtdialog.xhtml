@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<p:panel id="search" header="เลือก Quotation">
+		<p:messages autoUpdate="true"></p:messages>
+		<h:form>
+
+			<h:panelGrid cellpadding="4" columns="2">
+				<h:outputLabel for="sname" value="ค้นหาด้วย Quotation Number : " />
+				<p:inputText id="sname" value="" required="true" label="ชื่อจริง" />
+			</h:panelGrid>
+			<h:panelGrid cellpadding="4" columns="4">
+
+
+
+				<h:outputLabel for="start" value="เริ่ม : " />
+				<p:calendar id="start" />
+
+				<h:outputLabel for="end" value="สิ้นสุด : " />
+				<p:calendar id="end" />
+
+				<p:commandButton icon="fa fa-search" value="ค้นหา" update="search"
+					process="search"></p:commandButton>
+				<p:commandButton value="ยกเลิก" update="search" process="@this"
+					icon="fa fa-times-circle">
+					<p:resetInput target="panel" />
+				</p:commandButton>
+
+
+
+			</h:panelGrid>
+		</h:form>
+
+		<br />
+		<br />
+		<h:form>
+			<p:dataTable value="#{functionBean.functions}" var="function"
+				rowIndexVar="index" paginator="true" paginatorPosition="bottom"
+				rows="3">
+				<p:column headerText="#" style="width:10%;text-align: center;">
+					<h:outputText value="#{index+1}" />
+				</p:column>
+
+				<p:column headerText="QT Number" style="width:20%">
+
+				</p:column>
+
+				<p:column headerText="วันที่" style="width:20%">
+
+				</p:column>
+
+
+				<p:column headerText="ชื่อลูกค้า" style="width:20%">
+
+				</p:column>
+
+
+
+
+				<p:column style="text-align: center;width:auto">
+					<p:commandButton value="เลือก"
+						actionListener="#{poBean.closeDialog2}"></p:commandButton>
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</p:panel>
+
+</h:body>
+<h:outputStylesheet library="css" name="style.css" />
+</html>

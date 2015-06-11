@@ -31,32 +31,42 @@
 				<p:tab title="สร้าPO">
 					<h:form id="add">
 						<h:panelGrid columns="4" cellpadding="5">
-
-
 							<p:outputLabel for="ponumber" value="PO-Number: " />
 							<p:inputText id="ponumber" value="" required="true"
 								label="PO-Number">
 							</p:inputText>
+							<p:outputLabel for="docdate" value="Document Date : " />
+							 <p:calendar id="docdate"/>
+							
 						</h:panelGrid>
-					</h:form>
-					<h:form>
-						<h:panelGrid columns="1">
-							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
-								paginatorPosition="bottom" rows="15">
 
-							</p:dataTable>
-						</h:panelGrid>
-					</h:form>
-					<br />
-					<br />
-					
-					<p:commandButton value="บันทึก" update="add" ajax="true"
-						validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
-					<p:commandButton value="ยกเลิก" update="panel" process="@this"
-						icon="fa fa-times-circle">
-						<p:resetInput target="panel" />
-					</p:commandButton>
+						<br />
 
+
+						<p:commandButton value="เพิ่มรายการ PO" actionListener="#{poBean.openQtDeatilDialog}" process="@this">
+
+						</p:commandButton>
+						<br />
+						<br />
+
+						<p:dataTable paginator="true" paginatorPosition="bottom" rows="15">
+
+						</p:dataTable>
+
+						<br />
+						<br />
+						<p:commandButton value="บันทึก" update="add" ajax="true"
+							validateClient="true" process="add" icon="fa fa-save"></p:commandButton>
+						<p:commandButton value="ยกเลิก" update="panel" process="@this"
+							icon="fa fa-times-circle">
+							<p:resetInput target="panel" />
+						</p:commandButton>
+
+						<br />
+						<br />
+
+
+					</h:form>
 				</p:tab>
 			</p:tabView>
 			<br />
