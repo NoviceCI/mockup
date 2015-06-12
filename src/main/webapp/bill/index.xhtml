@@ -16,35 +16,26 @@
 
 				<p:tabView onTabChange="clearMessage()">
 
-					<p:tab title="ค้นหาใบกำกับราคาสินค้า">
+					<p:tab title="ค้นหาใบวางบิล">
 						<h:form id="search">
+
 							<div align="center" style="padding-bottom: 1%">
 								<h:panelGrid cellpadding="6" columns="15">
-
-
-									<h:outputLabel for="qt_id" value="เลขที่ใบกำกับราคาสินค้า : " />
-									<p:inputText id="qt_id" value="" required="true"
-										label="เลขที่ใ	บกำกับราคาสินค้า" />
 
 									<h:outputLabel for="bill_id" value="เลขที่บิล : " />
 									<p:inputText id="bill_id" value="" required="true"
 										label="เลขที่บิล" />
 
 
-									<h:outputLabel for="po_id" value="เลขที่ใบสั่งซื้อ : " />
-									<p:inputText id="po_id" value="" required="true"
-										label="เลขที่ใบสั่งซื้อ" />
+									<h:outputLabel for="qt_id" value="เลขที่ใบกำกับราคาสินค้า : " />
+									<p:inputText id="qt_id" value="" required="true"
+										label="เลขที่ใ	บกำกับราคาสินค้า" />
 
 									<h:outputLabel for="company" value="ชื่อบริษัท : " />
 									<p:inputText id="company" value="" required="true"
 										label="ชื่อบริษัท" />
 
-
-
-
-
 								</h:panelGrid>
-
 
 								<h:panelGrid cellpadding="4" columns="10">
 									<p:commandButton icon="fa fa-search" value="ค้นหา"
@@ -55,66 +46,45 @@
 										<p:resetInput target="panel" />
 									</p:commandButton>
 								</h:panelGrid>
+
 							</div>
 
 							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
 								paginatorPosition="bottom" rows="10">
 
-								<p:column headerText="เลขที่ใบกำกับราคาสินค้า "/>
-							
+								<p:column headerText="#" />
+								<h:outputText value="">
+								</h:outputText>
 
-								<p:column headerText="บริษัท" />
-								<p:column headerText="รายละเอียด" />
-								<p:column headerText="วันที่ออก" />
+								<p:column headerText="เลขที่บิล " />
+
+
+								<p:column headerText="วันที่บิล" />
 								<p:column headerText="จำนวนเงิน" />
+								<p:column headerText="กำหนดชำระ" />
+								<p:column headerText="หมายเหตุ" />
 
 							</p:dataTable>
+
 						</h:form>
 					</p:tab>
 
-					<p:tab title="สร้างใบกำกับราคาสินค้า">
+					<p:tab title="สร้างใบวางบิล">
 						<h:form id="add">
-
 
 							<div align="right" style="padding-top: 1%;">
 
-								<h:outputLabel for="qt_id" value="เลขที่ใบกำกับราคาสินค้า : " />
-								<p:inputText id="qt_id" value="" required="true"
-									label="เลขที่ใบกำกับราคาสินค้า" />
-
-								<br> </br>
-
-								<p:outputLabel value="อ้างอิง (QT, PO):" />
-
-								<p:commandButton value="ใบเสนอราคา " icon="fa fa-copy"
-									actionListener="#{dialogFunction.openDialogInvoice}"
-									process="@this">
-								</p:commandButton>
-
-
-
-								<p:commandButton value="ใบสั่งซื้อ " icon="fa fa-copy"
-									actionListener="#{dialogFunction.openDialogPurchaseOrder}"
-									process="@this">
-
-								</p:commandButton>
-
-
-
+								<h:outputLabel for="bill_id" value="เลขที่ใบวางบิล : " />
+								<p:inputText id="bill_id" value="" required="true"
+									label="เลขที่ใบวางบิล" />
 							</div>
 
 							<h:panelGrid columns="4" cellpadding="10">
-								<p:outputLabel for="Invoice_Date" value="วันที่ออก:" />
-								<p:inputText id="Invoice_Date" label="วันที่ออก">
+								<p:outputLabel for="Invoice_Date"
+									value="วันที่ (ลูกค้านัดวางบิล):" />
+								<p:inputText id="Invoice_Date" label="วันที่ (ลูกค้านัดวางบิล):">
 
 								</p:inputText>
-
-
-								<p:outputLabel for="Due_Date" value="วันที่กำหนดชำระเงิน :" />
-								<p:inputText id="Due_Date" label="วันที่กำหนดชำระเงิน">
-
-								</p:inputText>
-
 
 								<p:outputLabel for="cus_name" value="ชื่อบริษัท :" />
 								<p:inputText id="cus_name" label="ชื่อบริษัท">
@@ -126,38 +96,42 @@
 
 								</p:inputTextarea>
 
-								<p:outputLabel for="cus_tax" value="เลขผู้เสียภาษี (ลูกค้า) :" />
-								<p:inputText id="cus_tax" label="เลขผู้เสียภาษี (ลูกค้า)">
-								</p:inputText>
-
 								<p:outputLabel for="cus_phone" value="เบอร์ติดต่อ (ลูกค้า) :" />
 								<p:inputText id="cus_phone" label="เบอร์ติดต่อ (ลูกค้า)">
 								</p:inputText>
 
-								<p:outputLabel for="cus_fax" value="เบอร์แฟ๊กซ์ (ลูกค้า) :" />
-								<p:inputText id="cus_fax" label="เบอร์แฟ๊กซ์ (ลูกค้า)">
-								</p:inputText>
-
-
 							</h:panelGrid>
 
+							<p:commandButton value="เพิ่มใบกำกับสินค้า " process="@this"
+								actionListener="#{dialogFunction.openDialogInvoice}">
+							</p:commandButton>
 							<p:dataTable tableStyle="table-layout: auto;" paginator="true"
 								paginatorPosition="bottom" rows="10">
 
-								<p:column headerText="#" />
-								<h:outputText value="">
-								</h:outputText>
+								<p:column headerText="เลขที่ใบกำกับราคาสินค้า " />
+
 
 								<p:column headerText="บริษัท" />
 								<p:column headerText="รายละเอียด" />
 								<p:column headerText="วันที่ออก" />
 								<p:column headerText="จำนวนเงิน" />
 
+
 							</p:dataTable>
+
+							<div style="padding-top: 1%">
+								<p:commandButton value="บันทึก">
+								</p:commandButton>
+
+								<p:commandButton value="ยกเลิก">
+								</p:commandButton>
+
+							</div>
+							
 						</h:form>
 					</p:tab>
-				</p:tabView>
 
+				</p:tabView>
 			</p:panel>
 
 			<script type="text/javascript">

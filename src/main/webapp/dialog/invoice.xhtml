@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>เลือกใบกำกับราคาสินค้า</title>
+	<style type="text/css">
+.ui-widget {
+	font-size: 90%;
+}
+</style>
+</h:head>
+
+<h:body>
+	<h:form id="f_bill">
+
+
+		<h:panelGrid columns="4" cellpadding="2">
+
+			<h:outputLabel for="bill_id" value="เลขที่ใบกำกับราคาสินค้า : " />
+			<p:inputText id="bill_id" value="" required="true"
+				label="เลขที่ใบกำกับราคาสินค้า" />
+
+
+			<h:outputLabel for="company" value="ชื่อบริษัท : " />
+			<p:inputText id="company" value="" required="true" label="ชื่อบริษัท" />
+
+			<p:outputLabel for="start_date" value="เริ่ม :" />
+			<p:inputText id="start_date" required="true" label="เริ่ม">
+
+			</p:inputText>
+
+			<p:outputLabel for="end_date" value="สิ้นสุด :" />
+			<p:inputText id="end_date" value="" required="true" label="สิ้นสุด">
+
+			</p:inputText>
+
+			<p:commandButton icon="fa fa-search" value="ค้นหา" update="f_bill"
+				process="f_bill">
+			</p:commandButton>
+
+		</h:panelGrid>
+		<p:dataTable tableStyle="table-layout: auto;" paginator="true"
+			paginatorPosition="bottom" rows="10">
+
+			<p:column headerText="เลขที่ใบกำกับราคาสินค้า " />
+
+
+			<p:column headerText="บริษัท" />
+			<p:column headerText="รายละเอียด" />
+			<p:column headerText="วันที่ออก" />
+			<p:column headerText="จำนวนเงิน" />
+
+			<p:column headerText="เลือก" style="text-align: center;width:auto">
+
+			</p:column>
+		</p:dataTable>
+
+	</h:form>
+</h:body>
+</html>
