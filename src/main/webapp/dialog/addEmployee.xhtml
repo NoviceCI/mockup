@@ -14,7 +14,7 @@
 </h:head>
 
 <h:body>
-	<h:form>
+	<h:form id="emp">
 
 
 		<h:panelGrid columns="2" cellpadding="2">
@@ -33,12 +33,36 @@
 				<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
 			</p:selectOneMenu>
 
-
+				<p:commandButton icon="fa fa-search" value="ค้นหา" update="emp"
+					process="emp"></p:commandButton>
 
 		</h:panelGrid>
-		<p:commandButton value="Add" listener="#{qtBean.closeDialog}"
-			process="@this">
-		</p:commandButton>
+		
+		<p:dataTable id="emtable" value=""  tableStyle="table-layout: auto;">
+						<p:column headerText="#">
+							<h:outputText value="" />
+						</p:column>
+
+						<p:column headerText="ชื่อจริง">
+							<h:outputText value="" />
+						</p:column>
+
+						<p:column headerText="นามสกุล">
+							<h:outputText value="" />
+						</p:column>
+
+						<p:column headerText="ตำแหน่ง	">
+							<h:outputText value="" />
+						</p:column>
+
+						<p:column style="text-align:center;width:15%">
+							<p:commandButton value="เลือก" styleClass="ui-priority-primary" />
+						</p:column>
+
+						
+
+
+					</p:dataTable>
 
 	</h:form>
 </h:body>
