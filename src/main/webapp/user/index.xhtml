@@ -32,12 +32,16 @@
 					<h:form id="add">
 						<h:panelGrid columns="4" cellpadding="5">
 
-							<p:outputLabel for="selectemployee" value="เลือกพนักงาน: " />
-							<p:selectOneMenu id="selectemployee" value="" style="width:125px">
-								<f:selectItem itemLabel="Mark" itemValue="HR" />
-								<f:selectItem itemLabel="Jhone " itemValue="S DEV" />
-								<f:selectItem itemLabel="Accounting" itemValue="Accounting" />
-							</p:selectOneMenu>
+							<p:outputLabel for="employee" value="เลือกพนักงาน: " />
+							<p:inputText id="employee" value="" required="true"
+								disabled="true" label="employee">
+								<p:commandButton
+									actionListener="#{dialogFunction.selectEmployee}"
+									icon="fa fa-plus" process="@this">
+
+								</p:commandButton>
+
+							</p:inputText>
 
 							<p:outputLabel for="role" value="เลือกบทบาท: " />
 							<p:selectOneMenu id="role" value="" style="width:125px">
@@ -73,8 +77,8 @@
 			<h:form>
 				<p:dataTable tableStyle="table-layout: auto;" paginator="true"
 					paginatorPosition="bottom" rows="15">
-				
-				
+
+
 
 				</p:dataTable>
 			</h:form>

@@ -37,18 +37,7 @@ public class QuotationBean {
 
 	}
 	
-	public void selectEmployee() {
-		
-		Map<String,Object> options = new HashMap<String, Object>();
-        options.put("modal", true);
-        options.put("draggable", false);
-        options.put("resizable", false);
-        options.put("contentHeight", 400);
-        options.put("contentWidth", 700);
-		
-		RequestContext.getCurrentInstance().openDialog("/dialog/addEmployee",options,null);
-		
-	}
+
 	
 	public void closeDialog() {
 		RequestContext.getCurrentInstance().closeDialog(null);
