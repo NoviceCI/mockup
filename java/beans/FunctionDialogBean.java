@@ -47,4 +47,15 @@ public class FunctionDialogBean {
 				"/dialog/purchaseOrder", options, null);
 	}
 	
+	public void openDialogInvoice(){
+		Map<String, Object> options = new HashMap<String, Object>();
+		options.put("modal", true);
+		options.put("resizable", false);
+		options.put("contentHeight", 600);
+		options.put("contentWidth", 800);
+		
+		RequestContext.getCurrentInstance().openDialog(
+				"/dialog/invoice", options, null);
+	}
+	
 }

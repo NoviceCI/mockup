@@ -17,7 +17,7 @@
 
 				<p:tabView onTabChange="clearMessage()">
 
-					<p:tab title="ค้นหาใบเสนอราคา">
+					<p:tab title="ไ	">
 
 						<h:form id="search">
 							<h:panelGrid cellpadding="2" columns="8">
@@ -35,16 +35,10 @@
 								<p:inputText id="contacts" value="" required="true"
 									label="ชื่อผู้ติดต่อ" />
 
-								
-
-
-
-
-
-
 							</h:panelGrid>
 
-							<div style="padding-left:40%;padding-top: 2%;padding-bottom: 1% ">
+							<div
+								style="padding-left: 40%; padding-top: 2%; padding-bottom: 1%">
 								<p:commandButton icon="fa fa-search" value="ค้นหา"
 									update="search" process="search"></p:commandButton>
 								<p:commandButton value="ยกเลิก" update="panel" process="@this"
@@ -58,7 +52,7 @@
 								paginatorPosition="bottom" rows="10">
 
 								<p:column headerText="เลขที่ใบเสนอราคา" />
-								<h:outputText value="QT000">
+								<h:outputText value="">
 								</h:outputText>
 
 								<p:column headerText="คู่ค้า" />
@@ -148,6 +142,13 @@
 
 								</p:inputText>
 
+
+								<p:outputLabel for="remark" value="หมายเหตุ :" />
+								<p:inputTextarea id="remark" label="หมายเหตุ :" rows="5"
+									cols="31" value="">
+
+
+								</p:inputTextarea>
 
 							</h:panelGrid>
 
